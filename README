@@ -1,0 +1,47 @@
+# Created by Zheng-Yu Chen on 10-7-18.
+# Copyright 2010 return-0. All rights reserved.
+
+== 获取代码方法
+   $ git clone git@github.com:vvdpzz/pirate.git
+   or
+   $ git clone https://artistpush@github.com/vvdpzz/pirate.git
+
+== 提交代码设置
+
+   $ git remote add pirate git@github.com:vvdpzz/pirate.git
+   以后提交代码直接：$ git push pirate <branch>
+   例如： $ git push pirate master
+
+2、设置个人信息
+   git config --global user.name "Zheng-Yu Chen"
+   git config --global user.email vvdpzz@gmail.com
+
+== 各位兄弟提交代码时注意移除一下文件：
+
+   Mac OS X:
+   $ git rm -f *.DS_Store
+
+   Linux NetBeans:
+   $ git rm -rf nbproject
+
+   最后再删除日志文件：
+   $ git rm -rf log
+
+   还有种一劳永逸的方法：
+   $ vi ~/.gitignore
+   内容为：
+   .DS_Store
+   /log
+   /nbproject
+   然后：
+   $ git config --global core.excludesfile ~/.gitignore
+
+== 关于代码的初次配置
+
+1 bundle install
+
+2 配置数据库
+   MySQL数据库：return0
+   username: root
+   password:
+   然后执行：rake db:migrate
