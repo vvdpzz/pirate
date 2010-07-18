@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Return0</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js",
+							 "rails.js", "application.js", "jquery-ui.js", "autocomplete-rails.js" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+	<div id="container">
+		<div id="content">
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>

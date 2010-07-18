@@ -1,0 +1,8 @@
+<%= div_for show_question do %>
+	<div class="title">
+		<%= link_to show_question.title, show_question %>
+	</div>
+	<div class="tags">
+		<%= render :partial => "other/show_tag", :collection => show_question.tag_list %>
+	</div>
+<% end %>
