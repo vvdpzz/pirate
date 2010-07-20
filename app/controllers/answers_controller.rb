@@ -43,6 +43,7 @@ class AnswersController < ApplicationController
   # POST /answers.xml
   def create
     @answer = @question.answers.build(params[:answer])
+    @answer.body = RedCloth.new(@answer.body).to_html
     @answer.user_id = current_user
 
     respond_to do |format|
@@ -58,6 +59,7 @@ class AnswersController < ApplicationController
   # PUT /answers/1.xml
   def update
     @answer = @question.answers.find(params[:id])
+    @answer.body = RedCloth.new(@answer.body).to_html
 
     respond_to do |format|
       if @answer.update_attributes(params[:answer])

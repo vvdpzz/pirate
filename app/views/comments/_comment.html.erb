@@ -1,6 +1,6 @@
 <%=form_tag :controller=> 'comments', :action => 'create' do %>
 	<%= hidden_field_tag :commentable, commentable %>
 	<%= hidden_field_tag :id, id %>
-	<%= text_area_tag :body %>
-	<%= submit_tag 'comment' %>
+	<%= text_area_tag :body, {} ,:class => 'ta cmt border-box' %>
+	<%= submit_tag '回复', :class => 'ui-button ui-widget ui-state-default ui-corner-all some_margin' %>
 <% end %>

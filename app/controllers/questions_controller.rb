@@ -54,6 +54,7 @@ class QuestionsController < ApplicationController
   # POST /questions.xml
   def create
     @question = @user.questions.build(params[:question])
+    @question.body = RedCloth.new(@question.body).to_html
 
     respond_to do |format|
       if @question.save
@@ -70,6 +71,7 @@ class QuestionsController < ApplicationController
   # PUT /questions/1.xml
   def update
     @question = Question.find(params[:id])
+    @question.body = RedCloth.new(@question.body).to_html
 
     respond_to do |format|
       params[:question][:updated_by] = current_user

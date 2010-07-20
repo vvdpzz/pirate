@@ -1,15 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @question.title %>
-</p>
-
-<p>
-  <b>Body:</b>
-	<%= safe_html_out_for(@question.body) %>
-</p>
-
+<h1><%= @question.title %></h1>
+<%= safe_html_out_for(@question.body) %>
 <% if can? :edit, @question %>
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <% end %>

@@ -1,8 +1,8 @@
 <%= form_for(@question) do |f| %>
-    <%= f.text_field :title %>
-    <%= f.text_area :body, :id => "need_preview" %>
-  <div id="preview">
-  </div>
-	<%= f.text_field :tag_list, :autocomplete => autocomplete_tag_name_questions_path %>
-    <%= f.submit %>
+    <%= f.text_field :title, :class => 'tf border-box' %>
+    <%= f.text_area :body, :id => 'need_preview', :class => 'ta border-box' %>
+	<div id="preview" class="border-box">
+	</div>
+	<%= f.text_field :tag_list, :autocomplete => autocomplete_tag_name_questions_path, :class  => 'tf border-box' %>
+    <%= f.submit '提问', :class => 'ui-button ui-widget ui-state-default ui-corner-all' %>
 <% end %>

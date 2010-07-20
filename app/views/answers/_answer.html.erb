@@ -1,6 +1,6 @@
 <%= form_for([@question,@answer]) do |f| %>
-  <%= f.text_area :body, :id => "need_preview" %>
+  <%= f.text_area :body, :id => 'need_preview', :class => 'ta border-box' %>
   <div id="preview">
   </div>
-  <%= f.submit %>
+  <%= f.submit '添加答案', :class => 'ui-button ui-widget ui-state-default ui-corner-all some_margin' %>
 <% end %>
