@@ -1,0 +1,6 @@
+<%= div_for show_answer do %>
+	<%= show_answer.user.profile.display_name %> - 
+	<%= safe_html_out_for(show_answer.body) %>
+	<%= render :partial => "comments/show_comment", :collection => show_answer.comments %>
+	<%= render :partial => "comments/comment", :locals => {:commentable => "answer", :id => show_answer.id} %>
+<% end %>

@@ -1,10 +1,21 @@
 Return0::Application.routes.draw do |map|
+  get "previews/index"
+
+  resources :previews
+
+
   devise_for :users
+  
+  post 'comments/create'
 
   match 'questions/tagged/:tag' => 'questions#tagged', :as => :tagged
   
   resources :questions do
     get :autocomplete_tag_name, :on => :collection
+    resources :answers do
+      resources :comments
+    end
+    resources :comments
   end
 
   # The priority is based upon order of creation:

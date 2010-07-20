@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation
   acts_as_tagger
   has_many :questions
+  has_many :answers
   has_one :profile
   before_save :create_profile
   private

@@ -7,10 +7,17 @@
 
 <p>
   <b>Body:</b>
-	<%= sanitize @question.body, :tags => %w(h1 h2 h3 h4 h5 h6 p a img br span table th tr td b), :attributes => %w(id class style href src width height) %>
+	<%= safe_html_out_for(@question.body) %>
 </p>
 
-<% if can? :update, @question %>
+<% if can? :edit, @question %>
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <% end %>
 <%= link_to "Rollback", :version => @question.version-1 %> <span class="e"><%= pi @question.version %></span>
+<%= render :partial => "comments/show_comment", :collection => @question.comments %>
+<%= render :partial => "comments/comment", :locals => {:commentable => "question", :id => @question.id} %>
+<div id="answers">
+	<%= render :partial => "answers/show_answer", :collection => @question.answers %>
+</div>
+<%= render :partial => @answer = Answer.new %>
+

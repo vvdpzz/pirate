@@ -1,0 +1,6 @@
+<%= form_for([@question,@answer]) do |f| %>
+  <%= f.text_area :body, :id => "need_preview" %>
+  <div id="preview">
+  </div>
+  <%= f.submit %>
+<% end %>

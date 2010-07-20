@@ -1,0 +1,6 @@
+<%=form_tag :controller=> 'comments', :action => 'create' do %>
+	<%= hidden_field_tag :commentable, commentable %>
+	<%= hidden_field_tag :id, id %>
+	<%= text_area_tag :body %>
+	<%= submit_tag 'comment' %>
+<% end %>

@@ -3,6 +3,8 @@ class Ability
 
   def initialize(user)
     can :read, :all
-    can :update, :all, :user_id => 1
+    if user.profile.reputation >= 1000
+      can :edit, :all
+    end
   end
 end
