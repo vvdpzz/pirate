@@ -2,7 +2,7 @@
 # Copyright 2010 return-0. All rights reserved.
 
 == 获取代码方法
-   $ git clone git@github.com:vvdpzz/pirate.git
+   $ git clone git://github.com/vvdpzz/pirate.git
    or
    $ git clone https://artistpush@github.com/vvdpzz/pirate.git
 
