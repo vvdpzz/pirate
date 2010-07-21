@@ -1,4 +1,8 @@
 Return0::Application.routes.draw do |map|
+  resources :notifies
+
+  get "profiles/index"
+
   get "votes/vote_up"
 
   get "votes/vote_down"

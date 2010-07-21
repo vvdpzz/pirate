@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :answers
   has_one :profile
   before_save :create_profile
+  has_many :notifies
   private
     def create_profile
       self.profile ||= Profile.new

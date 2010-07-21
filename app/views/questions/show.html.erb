@@ -16,4 +16,4 @@
 		<% end %>
 	</div>
 </div>
-
+<%= render :partial => "comments/comment", :locals => {:commentable => "question", :id => @question.id} %>

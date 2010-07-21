@@ -48,6 +48,9 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
+        notification = "#{@answer.user.email}回答了你的问题"
+        @question.user.notifies.build(:body => notification)
+        @question.user.save
         format.html { redirect_to(@question, :notice => 'Answer was successfully created.') }
       else
         format.html { render :action => "new" }
