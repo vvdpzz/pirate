@@ -1,8 +1,34 @@
 <%= div_for show_question do %>
+<div class="status">
+	<div class="vote">
+		<div class="number">
+			<%= show_question.votes_trend %>
+		</div>
+		<div class="owner">投票</div>
+	</div>
+	<div class="answer">
+		<div class="number">
+			<%= show_question.answers.size %>
+		</div>
+		<div class="owner">答案</div>
+	</div>
+	<div class="view">
+		<div class="number">
+			<%= show_question.views %>
+		</div>
+		<div class="owner">浏览</div>
+	</div>
+</div>
+<div class="summary">
 	<div class="title">
 		<%= link_to show_question.title, show_question %>
+	</div>
+	<div class="user">
+		<%= link_to show_question.user.profile.real_name, show_question %>
+		<span class="reputation"><%= show_question.user.profile.reputation %></span>
 	</div>
 	<div class="tags">
 		<%= render :partial => "other/show_tag", :collection => show_question.tag_list %>
 	</div>
+</div>
 <% end %>

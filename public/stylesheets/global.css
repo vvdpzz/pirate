@@ -1,32 +1,61 @@
-html {
-	-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;
-}
 .border-box {
 	-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; }
 .radius {
 	-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius:3px; }
 	.radius-round {
 		-webkit-border-radius:12px; -moz-border-radius:12px; border-radius:12px; }
-h1 {
-	font-size:23px; font-weight: bold; }
 
 a {
 	color:#36c; text-decoration:none; }
 	a:hover {
 		color:#6c3; text-decoration:none;	}
+
 #container {
 	width:980px; margin:0 20px; }
-#content {
-	float:left; width:680px; }
-	.question {
-		float:left; width:100%; border-bottom:1px dotted #ddd; line-height:1.4; padding-top:5px; padding-bottom:8px; }
-		.question .title a{
-			font-size: 17px; }
-		.tags {
-			float:left; width:100%; margin-top:2px; }
-			.tag {
-				float:left; border:2px solid #36c; margin-right:10px; padding:1px 6px; font-size:12px; }
-			.e {
-				font-size:12px;color:#ddd; }
-		.comment {
-			color:#555; font-size:13px; padding-left:30px; }
+	#content {
+		float:left; width:720px; }
+
+.question {
+	float:left; width:100%; border-bottom:1px dotted #ddd; padding:10px 0; }
+
+.status {
+	float:left; width:240px; }
+	.vote {
+		float:left; width:70px; margin-right:10px; color:#555; }
+		.vote .number {
+			text-align:center; font-size:24px; font-weight:bold; }
+		.vote .owner {
+			text-align:center; font-size:13px; }
+	.answer {
+		float:left; width:70px; margin-right:10px; color:#71A311; }
+		.answer .number {
+			text-align:center; font-size:24px; font-weight:bold; }
+		.answer .owner {
+			text-align:center; font-size:13px; }
+	.view {
+		float:left; width:70px; margin-right:10px; color:#999;}
+		.view .number {
+			text-align:center; font-size:24px; font-weight:bold; }
+		.view .owner {
+			text-align:center; font-size:13px; }
+	
+.summary {
+	margin-left:240px; }
+	.title {
+		font-size:17px; margin-bottom:5px; }
+	.user {
+		float:right; font-size:13px; margin-top: 5px; }
+		.reputation {
+			color:#555;	}
+	.tags {
+		float:left; width:80%; }
+		.tag {
+			float:left; border:2px solid #36c; margin-right:10px; padding:1px 6px; font-size:12px; }
+.pop {
+	float:left; width:100%; }
+	.votes_trend {
+		float:left; width:40px; color:#999; font-size:28px; font-weight:bold; text-align:center;	}
+	.body {
+		margin-left:50px; color:#555; line-height:1.4; }
+	.toolbar {
+		margin-left:50px; margin-top:10px; }

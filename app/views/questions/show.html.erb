@@ -1,13 +1,19 @@
-<h1><%= @question.title %></h1>
-<%= safe_html_out_for(@question.body) %>
-<% if can? :edit, @question %>
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<% end %>
-<%= link_to "Rollback", :version => @question.version-1 %> <span class="e"><%= pi @question.version %></span>
-<%= render :partial => "comments/show_comment", :collection => @question.comments %>
-<%= render :partial => "comments/comment", :locals => {:commentable => "question", :id => @question.id} %>
-<div id="answers">
-	<%= render :partial => "answers/show_answer", :collection => @question.answers %>
+<h2><%= @question.title %></h2>
+<div class="pop">
+	<div class="votes_trend">
+		<%= @question.votes_trend %>
+	</div>
+	<div class="body">
+		<%= safe_html_out_for(@question.body) %>
+	</div>
+	<div class="toolbar">
+		<%= link_to 'Vote Up', {:controller => :votes, :action => :vote_up, :voteable => 'question', :id => @question.id} %>
+		<%= @question.votes_for %>
+		<%= link_to 'Vote Down',{:controller => :votes, :action => :vote_down, :voteable => 'question', :id => @question.id} %>
+		<%= @question.votes_against %>
+		<% if can? :edit, @question %>
+			<%= link_to 'Edit', edit_question_path(@question) %>
+		<% end %>
+	</div>
 </div>
-<%= render :partial => @answer = Answer.new %>
 

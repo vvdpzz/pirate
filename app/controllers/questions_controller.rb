@@ -26,6 +26,10 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @question.revert_to(params[:version].to_i) if params[:version]
+    if session["question_viewed_#{@question.id}"] == nil
+      session["question_viewed_#{@question.id}"] = 1
+      @question.update_attributes(:views => @question.views+1)
+    end
 
     respond_to do |format|
       format.html # show.html.erb

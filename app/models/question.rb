@@ -2,6 +2,7 @@ class Question < ActiveRecord::Base
   belongs_to :user
   has_many :answers
   has_many :comments, :as => :commentable
+  acts_as_voteable
   acts_as_taggable
   acts_as_taggable_on :tags
   versioned

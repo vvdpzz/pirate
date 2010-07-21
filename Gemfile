@@ -13,6 +13,7 @@ gem 'acts-as-taggable-on'
 gem 'vestal_versions', :git => 'git://github.com/lailsonbm/vestal_versions', :branch => 'rails3'
 gem 'rails3-jquery-autocomplete', '>= 0.1.1', :require => 'autocomplete'
 gem 'RedCloth'
+gem 'vote_fu', :git => 'git://github.com/mayoral/vote_fu.git' 
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -6,5 +6,5 @@ class Ability
     if user.profile.reputation >= 1000
       can :update, :all
     end
-  end
+  end 
 end

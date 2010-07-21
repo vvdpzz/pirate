@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation
   acts_as_tagger
+  acts_as_voter
   has_many :questions
   has_many :answers
   has_one :profile
