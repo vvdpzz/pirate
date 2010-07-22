@@ -1,2 +1,7 @@
 <%= link_to 'Ask Question', new_question_path %>
 <%= render :partial => "show_question", :collection => @questions %>
+<% content_for :loadmore do %>
+<div id="endless">
+	<div id="loadmore">载入更多</div>
+</div>
+<% end %>

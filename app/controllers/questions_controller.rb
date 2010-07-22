@@ -13,10 +13,16 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.xml
   def index
-    @questions = Question.all
-
+    if params[:times] == nil
+      session[:last] = Question.last.id
+    end
+    number = 2
+    times = params[:times].to_i
+    @questions = Question.find(:all, :order => "id DESC", :offset => number*times, :limit => number,
+                               :conditions => ["id <= ?", session[:last].to_i])
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.xml  { render :xml => @questions }
     end
   end
@@ -75,10 +81,10 @@ class QuestionsController < ApplicationController
   # PUT /questions/1.xml
   def update
     @question = Question.find(params[:id])
-    @question.body = RedCloth.new(@question.body).to_html
 
     respond_to do |format|
       params[:question][:updated_by] = current_user
+      params[:question][:body] = RedCloth.new(params[:question][:body]).to_html
       if @question.update_attributes(params[:question])
         format.html { redirect_to(@question, :notice => 'Question was successfully updated.') }
         format.xml  { head :ok }

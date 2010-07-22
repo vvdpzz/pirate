@@ -5,5 +5,5 @@ module ApplicationHelper
   end
   def safe_html_out_for(object)
     sanitize object, :tags => %w(h1 h2 h3 h4 h5 h6 p a img br span table th tr td b ol ul li), :attributes => %w(id class style href src width height)
-  end  
+  end
 end

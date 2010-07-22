@@ -17,6 +17,7 @@ Return0::Application.routes.draw do |map|
   post 'comments/create'
 
   match 'questions/tagged/:tag' => 'questions#tagged', :as => :tagged
+  match 'questions/index/:times' => 'questions#index', :as => :load_questions
   
   resources :questions do
     get :autocomplete_tag_name, :on => :collection

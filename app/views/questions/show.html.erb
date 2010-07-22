@@ -1,19 +1,18 @@
 <h2><%= @question.title %></h2>
 <div class="pop">
-	<div class="votes_trend">
+	<div class="votes_trend" id="vote_trend_<%= @question.class %>_<%= @question.id %>">
 		<%= @question.votes_trend %>
 	</div>
 	<div class="body">
 		<%= safe_html_out_for(@question.body) %>
 	</div>
 	<div class="toolbar">
-		<%= link_to 'Vote Up', {:controller => :votes, :action => :vote_up, :voteable => 'question', :id => @question.id} %>
-		<%= @question.votes_for %>
-		<%= link_to 'Vote Down',{:controller => :votes, :action => :vote_down, :voteable => 'question', :id => @question.id} %>
-		<%= @question.votes_against %>
+		<%= link_to 'Vote Up', {:controller => :votes, :action => :vote_up, :voteable => 'question', :id => @question.id}, :remote => true %>
+		<span id="vote_for_<%= @question.class %>_<%= @question.id %>"><%= @question.votes_for %></span>
+		<%= link_to 'Vote Down',{:controller => :votes, :action => :vote_down, :voteable => 'question', :id => @question.id}, :remote => true %>
+		<span id="vote_against_<%= @question.class %>_<%= @question.id %>"><%= @question.votes_against %></span>
 		<% if can? :edit, @question %>
 			<%= link_to 'Edit', edit_question_path(@question) %>
 		<% end %>
 	</div>
 </div>
-<%= render :partial => "comments/comment", :locals => {:commentable => "question", :id => @question.id} %>
