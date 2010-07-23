@@ -1,4 +1,6 @@
 Return0::Application.routes.draw do |map|
+  get "badges/index"
+
   resources :notifies
 
   get "profiles/index"
