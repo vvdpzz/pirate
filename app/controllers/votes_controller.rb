@@ -3,6 +3,7 @@ class VotesController < ApplicationController
     @voteable = params[:voteable].to_s.classify.constantize
 		@qac = @voteable.find(params[:id])
 		current_user.vote_for(@qac)
+		current_user.add_badge(Badge.first.id)
 		respond_to do |format|
       format.js
     end
