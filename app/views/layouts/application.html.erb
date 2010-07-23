@@ -9,6 +9,36 @@
 </head>
 <body>
 	<div id="container">
+		<div id="header">
+			<div id="user-nav">
+				<% if user_signed_in? %>
+					<%= current_user.profile.real_name %>
+					<%= link_to "注销", destroy_user_session_path %>
+				<% else %>
+					<%= link_to "登录", new_session_path(resource_name) %> or
+					<%= link_to "注册", new_registration_path(resource_name) %>
+				<% end %>	
+			</div>
+			<br style="clear:both">
+			<div id="logo">
+			</div>
+			<div class="menu">
+				<div class="main">
+					<ul class="fun">
+						<li><%= link_to "问题", questions_path %></li>
+						<li>标签</li>
+						<li>用户</li>
+						<li>成就</li>
+						<li>待解决</li>
+					</ul>
+				</div>
+				<div class="ask">
+					<ul class="fun">
+						<li><%= link_to "新问题", new_question_path %></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 		<div id="content">
 			<%= yield %>
 		</div>

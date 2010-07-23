@@ -16,14 +16,14 @@ class QuestionsController < ApplicationController
     if params[:times] == nil
       session[:last] = Question.last.id
     end
-    number = 2
+    number = 10
     times = params[:times].to_i
     @questions = Question.find(:all, :order => "id DESC", :offset => number*times, :limit => number,
                                :conditions => ["id <= ?", session[:last].to_i])
     respond_to do |format|
       format.html # index.html.erb
       format.js
-      format.xml  { render :xml => @questions }
+      format.json { render :text => @questions.to_json }
     end
   end
 
@@ -39,7 +39,6 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @question }
     end
   end
 
@@ -50,7 +49,6 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @question }
     end
   end
 
