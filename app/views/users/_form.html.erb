@@ -1,0 +1,5 @@
+<%= form_for @profile, :url => { :action => 'update' } do |f| %>
+	<%= f.label :display_name %>
+	<%= f.text_field :display_name %>
+	<%= f.submit %>
+<% end -%>

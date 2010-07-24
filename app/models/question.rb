@@ -6,8 +6,8 @@ class Question < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :tags
   versioned
-  def to_param
-    "#{id}-#{title.gsub(" ","-")}"
-    # filter bug e.g. ?*&%^$%$#@!~!
-  end
+  # def to_param
+  #   "#{id}-#{title.gsub(" ","-")}"
+  #   # filter bug e.g. ?*&%^$%$#@!~!
+  # end
 end

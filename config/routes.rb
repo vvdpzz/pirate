@@ -1,18 +1,14 @@
 Return0::Application.routes.draw do |map|
-  get "badges/index"
-
-  resources :notifies
-
-  get "profiles/index"
+  #match 'users' => 'users#index', :as => :users
+  match 'tags' => 'tags#index', :as => :tags
+  match 'badges' => 'badges#index', :as => :badges
 
   get "votes/vote_up"
-
   get "votes/vote_down"
 
-  get "previews/index"
-
   resources :previews
-
+  resources :notifies
+  resources :users
 
   devise_for :users
   
@@ -20,6 +16,7 @@ Return0::Application.routes.draw do |map|
 
   match 'questions/tagged/:tag' => 'questions#tagged', :as => :tagged
   match 'questions/index/:times' => 'questions#index', :as => :load_questions
+  match 'unanswered' => 'questions#unanswered', :as => :unanswered
   
   resources :questions do
     get :autocomplete_tag_name, :on => :collection

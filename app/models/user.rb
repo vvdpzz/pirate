@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_many :badgings
   has_many :badges, :through => :badgings
   def add_badge(badge_id)
-    exist = self.badgings.where("badge_id = ?", badge_id).first
+    exist = self.badgings.find_by_badge_id(badge_id).first
     if exist
       exist.times +=1
       exist.save

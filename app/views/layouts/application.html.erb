@@ -26,15 +26,15 @@
 				<div class="main">
 					<ul class="fun">
 						<li><%= link_to "问题", questions_path %></li>
-						<li>标签</li>
-						<li>用户</li>
-						<li><%= link_to "成就", badges_index_path %></li>
-						<li>待解决</li>
+						<li><%= link_to "标签", tags_path %></li>
+						<li><%= link_to "用户", users_path %></li>
+						<li><%= link_to "成就", badges_path %></li>
+						<li><%= link_to '待解决', unanswered_path %></li>
 					</ul>
 				</div>
 				<div class="ask">
 					<ul class="fun">
-						<li><%= link_to "新问题", new_question_path %></li>
+						<li><%= link_to "提问", new_question_path %></li>
 					</ul>
 				</div>
 			</div>

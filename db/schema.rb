@@ -71,6 +71,9 @@ ActiveRecord::Schema.define(:version => 20100723082401) do
     t.integer  "user_id"
     t.string   "title"
     t.text     "body"
+    t.integer  "answer_id",  :default => 0
+    t.integer  "status",     :default => 0
+    t.integer  "featured",   :default => 0
     t.integer  "views",      :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"

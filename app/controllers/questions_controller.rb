@@ -26,6 +26,19 @@ class QuestionsController < ApplicationController
       format.json { render :text => @questions.to_json }
     end
   end
+  
+  def unanswered
+    if params[:unanswered_times] == nil
+      session[:unanswered_last] = Question.last.id
+    end
+    number = 10
+    times = params[:unanswered_times].to_i
+    @questions = Question.find(:all, :order => "id DESC", :offset => number*times, :limit => number,
+                               :conditions => ["id <= ? AND answer_id = 0", session[:unanswered_last].to_i])
+    respond_to do |format|
+      format.html
+    end
+  end
 
   # GET /questions/1
   # GET /questions/1.xml

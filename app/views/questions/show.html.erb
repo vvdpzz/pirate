@@ -7,12 +7,14 @@
 		<%= safe_html_out_for(@question.body) %>
 	</div>
 	<div class="toolbar">
+		<% if can? :vote_up, @question %>
 		<%= link_to 'Vote Up', {:controller => :votes, :action => :vote_up, :voteable => 'question', :id => @question.id}, :remote => true %>
 		<span id="vote_for_<%= @question.class %>_<%= @question.id %>"><%= @question.votes_for %></span>
 		<%= link_to 'Vote Down',{:controller => :votes, :action => :vote_down, :voteable => 'question', :id => @question.id}, :remote => true %>
 		<span id="vote_against_<%= @question.class %>_<%= @question.id %>"><%= @question.votes_against %></span>
+		<% end -%>
 		<% if can? :edit, @question %>
-			<%= link_to 'Edit', edit_question_path(@question) %>
+			<%= link_to '编辑', edit_question_path(@question) %>
 		<% end %>
 	</div>
 </div>
