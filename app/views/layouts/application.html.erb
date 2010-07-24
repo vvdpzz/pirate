@@ -13,7 +13,7 @@
 			<div id="user-nav">
 				<% if user_signed_in? %>
 					<%= link_to current_user.profile.real_name, current_user %>
-					<%= link_to "注销", destroy_user_session_path %>
+					<%= link_to "登出", destroy_user_session_path %>
 				<% else %>
 					<%= link_to "登录", new_session_path(resource_name) %> or
 					<%= link_to "注册", new_registration_path(resource_name) %>
