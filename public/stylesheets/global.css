@@ -90,6 +90,6 @@ a {
 	float:left; width:720px; margin-top:20px; }
 #loadmore {
 	width:64px; border:2px solid #36c; margin:0 auto; color:#36c; padding:5px 20px; cursor:pointer;
-	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius:5px; }
+	-webkit-border-radius:8px; -moz-border-radius:8px; border-radius:8px; }
 	.loadicon {
 		background:url(/images/ui-anim_basic_16x16.gif) no-repeat; background-position: 2px 5px; }

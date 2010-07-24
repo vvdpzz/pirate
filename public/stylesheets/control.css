@@ -22,3 +22,18 @@
 	border-bottom:1px solid #555; margin-bottom:20px; }
 h3 {
 	margin:0; margin-bottom:3px; color:#555; }
+
+
+#user-avatar {
+	padding:0px 20px 8px;
+}
+.summaryinfo {
+	color:#808185; text-align:center; }
+.summarycount {
+	color:#808185; font-size:28px; font-weight:bold; text-align:center; }
+#about-me{
+	width:100%; background:#eee; height:200px; padding:20px; color:#555;
+	-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;
+	-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius:3px; }
+.user-details {
+	font-size:14px; color:#555; line-height:1.9; }

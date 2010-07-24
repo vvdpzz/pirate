@@ -1,11 +1,60 @@
-<%= image_tag @user.gravatar_url(:size => 128) %><br/>
-<td>昵称:</td><%= @profile.display_name %><br/>
-<td>真实姓名:</td><%= @profile.real_name %><br/>
-<td>年龄:</td><%= @profile.age %><br/>
-<td>性别:</td><%= @profile.gender %><br/>
-<td>个人主页:</td><%= @profile.website %><br/>
-<td>地址:</td><%= @profile.location %><br/>
-<td>学校:</td><%= @profile.school %><br/>
-<td>关于我:</td><%= @profile.about_me %><br/>
-<td>M值:</td><%= @profile.money %><br/>
-<td>成长值:</td><%= @profile.reputation %>
+<div class='big-header'><h3><%= @user.profile.display_name%></h3></div>
+<table>
+	<tr>
+		<td style="vertical-align:top; width:170px">
+			<table>
+				<tr>
+					<td id="user-avatar">
+						<%= image_tag @user.gravatar_url(:size => 128) %>
+					</td>
+				</tr>
+				<tr>
+					<td class="summaryinfo">
+						<div class="summarycount"><%= @profile.reputation %>
+							<span style="font-weight:bold;font-size:18px">RP</span>
+						</div>
+						<div class="summarycount"><%= @profile.money %>
+							<span style="font-weight:bold;font-size:18px">MP</span>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td style="vertical-align: top; width:350px">
+			<div style="float:right;font-size:13px;margin-right:10px;">
+				<%= link_to '编辑', edit_user_url(@user) %>
+			</div>
+			<table class="user-details">
+				<tr>
+					<td style="width:50px;">昵称</td><td><%= @profile.display_name %></td>
+				</tr>
+				<tr>
+					<td>实名</td><td><%= @profile.real_name %></td>
+				</tr>
+				<tr>
+					<td>年龄</td><td><%= @profile.age %></td>
+				</tr>
+				<tr>
+					<td>性别</td><td><%= @profile.gender %></td>
+				</tr>
+				<tr>
+					<td>学校</td><td><%= @profile.school %></td>
+				</tr>
+				<tr>
+					<td>位置</td><td><%= @profile.location %></td>
+				</tr>
+				<tr>
+					<td>网站</td><td><%= link_to @profile.website, @profile.website %></td>
+				</tr>
+				<tr>
+					<td>活动</td><td><%= time_ago_in_words @user.current_sign_in_at %> ago</td>
+				</tr>
+			</table>
+		</td>
+		<td style="width:390px">
+			<div id="about-me">
+				<%= @profile.about_me %>
+			</div>
+		</td>
+	</tr>
+</table>
