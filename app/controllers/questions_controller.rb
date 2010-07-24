@@ -28,15 +28,16 @@ class QuestionsController < ApplicationController
   end
   
   def unanswered
-    if params[:unanswered_times] == nil
+    if params[:times] == nil
       session[:unanswered_last] = Question.last.id
     end
     number = 10
-    times = params[:unanswered_times].to_i
+    times = params[:times].to_i
     @questions = Question.find(:all, :order => "id DESC", :offset => number*times, :limit => number,
                                :conditions => ["id <= ? AND answer_id = 0", session[:unanswered_last].to_i])
     respond_to do |format|
       format.html
+      format.js
     end
   end
 

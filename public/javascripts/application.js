@@ -10,10 +10,11 @@ var preview = function(){
 }
 $(document).ready(function(){
 	setInterval(preview,100);
-	times = 0;
 	$('#loadmore').click(function() {
 		$(this).addClass('loadicon');
-		times += 1;
-		$.get("/questions/index/"+times, $(this).serialize(), null, "script");
+		times = Number($('#loadmore').attr("nHd"))+1;
+		selector = $('#loadmore').attr("pHu");
+		$.get(selector+times, $(this).serialize(), null, "script");
+		$('#loadmore').attr("nHd",times);
 	});
 });
