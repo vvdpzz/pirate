@@ -8,9 +8,8 @@ Return0::Application.routes.draw do |map|
 
   resources :previews
   resources :notifies
-  resources :users
-
   devise_for :users
+  resources :users
   
   post 'comments/create'
 

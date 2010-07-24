@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :password#, :password_confirmation
   acts_as_tagger
   acts_as_voter
   has_many :questions
@@ -16,8 +16,9 @@ class User < ActiveRecord::Base
   has_many :notifies
   has_many :badgings
   has_many :badges, :through => :badgings
+  is_gravtastic!
   def add_badge(badge_id)
-    exist = self.badgings.find_by_badge_id(badge_id).first
+    exist = self.badgings.find_by_badge_id(badge_id)
     if exist
       exist.times +=1
       exist.save

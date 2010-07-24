@@ -1,0 +1,21 @@
+<div>
+	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+	<table>
+		<tbody>
+			<tr>
+				<td><%= f.text_field :email, :class => 'auth-tf' %></td>
+				<td><%= f.password_field :password, :class => 'auth-tf' %></td>
+				<td><%= f.submit '登录', :class => 'ui-button ui-widget ui-state-default ui-corner-all' %></td>
+			</tr>
+			<tr>
+				<td>
+					<% if devise_mapping.rememberable? -%>
+						<%= f.check_box :remember_me, :class => 'auth-checkbox' %> <span class="auth-text"><%= f.label '保持在登录状态' %></span>
+					<% end -%>
+				</td>
+				<td><span class="auth-text"><%= link_to "忘记密码？", new_password_path(resource_name) %></span></td>
+			</tr>
+		</tbody>
+	</table>
+	<% end %>
+</div>

@@ -1,0 +1,13 @@
+<div>
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	<table>
+		<tbody>
+			<tr>
+				<td><%= f.text_field :email, :class => 'auth-tf' %></td>
+				<td><%= f.password_field :password, :class => 'auth-tf' %></td>
+				<td><%= f.submit '注册', :class => 'ui-button ui-widget ui-state-default ui-corner-all' %></td>
+			</tr>
+		</tbody>
+	</table>
+	<% end %>
+</div>

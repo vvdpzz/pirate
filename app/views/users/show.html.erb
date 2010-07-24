@@ -1,3 +1,4 @@
+<%= image_tag @user.gravatar_url(:size => 128) %>
 <td>昵称</td><%= @profile.display_name %><br/>
 <td>真实姓名</td><%= @profile.real_name %><br/>
 <td>年龄</td><%= @profile.age %><br/>
@@ -8,6 +9,3 @@
 <td>关于我</td><%= @profile.about_me %><br/>
 <td>M</td><%= @profile.money %><br/>
 <td></td><%= @profile.reputation %>
-<% @profile.attributes.each do |key,value| %>
-	<%= "#{key}--------------------#{value}" %><br/>
-	<% end -%>
