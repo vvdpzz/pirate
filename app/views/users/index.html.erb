@@ -1,4 +1,4 @@
 <div class='big-header'><h3>所有用户</h3></div>	
 <% @users.each do |user|  %>
-	<%= link_to user.profile.real_name, user %>
+	<%= link_to user.profile.real_name, user %><br/>
 <% end -%>
