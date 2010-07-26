@@ -17,4 +17,5 @@
 			<%= link_to '编辑', edit_question_path(@question) %>
 		<% end %>
 	</div>
+	<%= render :partial => 'other/user_info', :locals => {:user => @question.user} %>
 </div>
