@@ -1,0 +1,6 @@
+$('#add-comment-<%= @able.class.name %>-<%= @able.id %>').hide();
+<% if @able.comments.count ==0 %>
+	$('#comments-<%= @able.class.name %>-<%= @able.id %>').addClass("update-border");
+	$('#comments-<%= @able.class.name %>-<%= @able.id %>').removeClass("delete-border");
+<% end %>
+$('#create-comment-<%= @able.class.name %>-<%= @able.id %>').slideDown("slow");

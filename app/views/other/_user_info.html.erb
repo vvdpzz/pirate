@@ -1,19 +1,26 @@
-<div class="user_info">
-	<div class="avatar">
-		<%= image_tag user.gravatar_url(:size => 40) %>
-	</div>
-	<div class="detail-info">
-		<div class="user_name">
-			<%= link_to user.profile.real_name, user %>
-		</div>
-		<div class="putation">
-			<%= user.profile.reputation %><span class="putation_name">RP</span>
-			<%= user.profile.money %><span class="putation_name">MP</span>
-		</div>
-		<div class="metal">
-			<%= user.badges.where("metal = ?","金").count %> 
-			<%= user.badges.where("metal = ?","银").count %> 
-			<%= user.badges.where("metal = ?","铜").count %>
-		</div>
-	</div>
-</div>
+<table>
+	<tbody>
+		<tr>
+			<td>
+				<div class="avatar">
+					<%= image_tag user.gravatar_url(:size => 32) %>
+				</div>
+			</td>
+			<td>
+				<div class="user-name">
+					<%= link_to user.profile.real_name, user %>
+				</div>
+				<table>
+					<tbody>
+						<tr>
+							<td class="honor-td rp"><%= to_k user.profile.reputation %></td>
+							<td class="honor-td"><div class="golden"></div></td><td class="metal-number"><%= user.badges.where("metal = ?","金").count %></div></td>
+							<td class="honor-td"><div class="silver"></div></td><td class="metal-number"><%= user.badges.where("metal = ?","银").count %></div></td>
+							<td class="honor-td"><div class="bronze"></div></td><td class="metal-number"><%= user.badges.where("metal = ?","铜").count %></div></td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+</table>

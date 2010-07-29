@@ -1,0 +1,9 @@
+<% if @comment.body.empty? == false %>
+$('#comments-<%=@qa.class.name%>-<%=@qa.id%> table tbody').append("<%= escape_javascript(render :partial => "comments/show_comment", :locals => { :show_comment => @comment }) %>");
+$('#new_comment')[0].reset();
+<% else %>
+	$('#comments-<%= @qa.class.name %>-<%= @qa.id %>').removeClass("update-border");
+	$('#comments-<%= @qa.class.name %>-<%= @qa.id %>').addClass("delete-border");
+<% end %>
+$('#create-comment-<%=@qa.class.name%>-<%=@qa.id%>').slideUp("slow");
+$('#add-comment-<%=@qa.class.name%>-<%=@qa.id%>').show();

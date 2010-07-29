@@ -9,39 +9,7 @@
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<div id="user-nav">
-				<% if user_signed_in? %>
-					<%= link_to current_user.profile.real_name, current_user %>
-					<%= link_to "登出", destroy_user_session_path %>
-				<% else %>
-					<%= link_to "登录", new_session_path(resource_name) %> or
-					<%= link_to "注册", new_registration_path(resource_name) %>
-				<% end %>	
-			</div>
-			<br style="clear:both">
-			<div id="logo">
-			</div>
-			<div class="menu">
-				<div class="main">
-					<ul class="fun">
-						<li><%= link_to "问题", questions_path %></li>
-						<li><%= link_to "标签", tags_path %></li>
-						<li><%= link_to "用户", users_path %></li>
-						<li><%= link_to "成就", badges_path %></li>
-						<li><%= link_to '待解决', unanswered_path %></li>
-					</ul>
-				</div>
-				<div class="ask">
-					<ul class="fun">
-						<li><%= link_to "提问", new_question_path %></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div id="content">
-			<%= yield %>
-		</div>
+		<%= yield %>
 		<%= yield :loadmore %>
 	</div>
 </body>

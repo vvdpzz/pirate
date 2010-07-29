@@ -8,3 +8,7 @@ del {
 	text-decoration: line-through; }
 table {
 	border-collapse: collapse; border-spacing: 0; }
+p {
+	margin:0 0 1em 0; }
+	p:last-child{
+		margin:0; }
