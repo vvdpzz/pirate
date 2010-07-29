@@ -7,6 +7,6 @@ module ApplicationHelper
     sanitize object, :tags => %w(h1 h2 h3 h4 h5 h6 p a img br span table th tr td b ol ul li), :attributes => %w(id class style href src width height)
   end
   def to_k(number)
-    number_to_human number, { :format => "%n%u", :units => { :thousand => "k"} }
+    number_to_human number, { :format => "%n%u", :units => {:unit => "", :thousand => "k"} }
   end
 end
