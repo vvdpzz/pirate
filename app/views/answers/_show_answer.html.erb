@@ -1,6 +1,25 @@
 <%= div_for show_answer do %>
-	<%= show_answer.user.profile.display_name %> - 
-	<%= safe_html_out_for(show_answer.body) %>
-	<%= render :partial => "comments/show_comment", :collection => show_answer.comments %>
-	<%= render :partial => "comments/comment", :locals => {:commentable => "answer", :id => show_answer.id} %>
+<div class="block block-top radius-block radius-block-top border-box">
+	<div class="left-block">
+		<div class="votes_trend" id="vote_trend_<%= show_answer.class %>_<%= show_answer.id %>"><%= show_answer.votes_trend %></div>
+	</div>
+	<div class="right-block">
+		<div class="mainwords">
+			<%= safe_html_out_for(show_answer.body) %>
+		</div>
+		<%= render :partial => 'comments_module', :locals => {:whose => show_answer} %>
+	</div>
+</div>
+<div class="block radius-block-bottom border-box margin">
+	<div class="left-block">
+	</div>
+	<div class="right-block small-font">
+		<% if can? :edit, show_answer %>
+			<%= link_to '编辑', [:edit,@question,show_answer] %>
+		<% end %>
+	</div>
+</div>
+<div class="kid-block radius-block border-box">
+	<%= render :partial => 'other/user_info', :locals => {:user => show_answer.user} %>
+</div>
 <% end %>

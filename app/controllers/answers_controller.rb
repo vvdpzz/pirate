@@ -30,6 +30,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
+      format.js
       format.xml  { render :xml => @answer }
     end
   end
@@ -49,9 +50,9 @@ class AnswersController < ApplicationController
     respond_to do |format|
       if @answer.save
         notification = "#{@answer.user.email}回答了你的问题"
-        @question.user.notifies.build(:body => notification)
-        @question.user.save
+        send_notification @answer, "answer", notification
         format.html { redirect_to(@question, :notice => 'Answer was successfully created.') }
+        format.js
       else
         format.html { render :action => "new" }
       end

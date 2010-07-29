@@ -10,59 +10,28 @@ a {
 	a:hover {
 		color:#6c3; text-decoration:none;	}
 
-#container {
-	width:980px; margin:0 auto; }
-	#header {
-		width:100%; height:110px;
-	}
-		#logo {
-			float:left; background:url(/images/return0.png) no-repeat; width:220px; height:80px;
-		}
-		#user-nav {
-			float:right; padding:5px 20px; border:2px solid #36c; border-top:none; margin-right:140px;
-			-webkit-border-bottom-left-radius:5px;-webkit-border-bottom-right-radius:5px;
-			-moz-border-radius-bottomleft:5px;-moz-border-radius-bottomright:5px;
-			font-size:13px;
-		}
-		.menu{
-			float:right; width:748px; padding:35px 0px;
-		}
-		.main{
-			float:left; }
-			.ask {
-				float:right; }
-		ul.fun {
-			list-style: none;
-		}
-		ul.fun li {
-			display: inline; border:2px solid #36c; padding:5px 20px; margin-left:10px;
-			-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius:5px;
-		}
-	#content {
-		float:left; width:720px; }
-
 .question {
 	float:left; width:100%; border-bottom:1px dotted #ddd; padding:10px 0; }
 
 .status {
 	float:left; width:240px; }
-	.vote {
+	.status > .vote {
 		float:left; width:70px; margin-right:10px; color:#555; }
-		.vote .number {
+		.status > .vote > .number {
 			text-align:center; font-size:24px; font-weight:bold; }
-		.vote .owner {
+		.status > .vote > .owner {
 			text-align:center; font-size:13px; }
-	.answer {
+	.status > .answer {
 		float:left; width:70px; margin-right:10px; color:#71A311; }
-		.answer .number {
+		.status > .answer > .number {
 			text-align:center; font-size:24px; font-weight:bold; }
-		.answer .owner {
+		.status > .answer > .owner {
 			text-align:center; font-size:13px; }
-	.view {
+	.status > .view {
 		float:left; width:70px; margin-right:10px; color:#999;}
-		.view .number {
+		.status > .view > .number {
 			text-align:center; font-size:24px; font-weight:bold; }
-		.view .owner {
+		.status > .view > .owner {
 			text-align:center; font-size:13px; }
 	
 .summary {
@@ -77,14 +46,6 @@ a {
 		float:left; width:80%; }
 		.tag {
 			float:left; border:2px solid #36c; margin-right:10px; padding:1px 6px; font-size:12px; }
-.pop {
-	float:left; width:100%; }
-	.votes_trend {
-		float:left; width:40px; color:#999; font-size:28px; font-weight:bold; text-align:center;	}
-	.body {
-		margin-left:50px; color:#555; line-height:1.4; }
-	.toolbar {
-		margin-left:50px; margin-top:10px; }
 
 #endless {
 	float:left; width:720px; margin-top:20px; }

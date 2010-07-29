@@ -1,20 +1,40 @@
-<div class='big-header'><h3><%= @question.title %></h3></div>
-<div class="pop">
-	<div class="votes_trend" id="vote_trend_<%= @question.class %>_<%= @question.id %>">
-		<%= @question.votes_trend %>
+<h3><%= @question.title %></h3>
+<div class="block block-top radius-block radius-block-top border-box">
+	<div class="left-block">
+		<div class="votes_trend" id="vote_trend_<%= @question.class %>_<%= @question.id %>"><%= @question.votes_trend %></div>
 	</div>
-	<div class="body">
-		<%= safe_html_out_for(@question.body) %>
+	<div class="right-block">
+		<div class="mainwords">
+			<%= safe_html_out_for(@question.body) %>
+		</div>
+		<%= render :partial => 'comments_module', :locals => {:whose => @question} %>
 	</div>
-	<div class="toolbar">
-		<% if can? :vote_up, @question %>
-		<%= link_to 'Vote Up', {:controller => :votes, :action => :vote_up, :voteable => 'question', :id => @question.id}, :remote => true %>
-		<span id="vote_for_<%= @question.class %>_<%= @question.id %>"><%= @question.votes_for %></span>
-		<%= link_to 'Vote Down',{:controller => :votes, :action => :vote_down, :voteable => 'question', :id => @question.id}, :remote => true %>
-		<span id="vote_against_<%= @question.class %>_<%= @question.id %>"><%= @question.votes_against %></span>
-		<% end -%>
+</div>
+<div class="block radius-block-bottom border-box">
+	<div class="left-block">
+	</div>
+	<div class="right-block small-font">
+		<%= link_to '回答', new_question_answer_path(@question), :remote => true %>
 		<% if can? :edit, @question %>
 			<%= link_to '编辑', edit_question_path(@question) %>
 		<% end %>
+		<% euler = euler(@question.version) %>
+		<% for i in 0..euler.length-1 do %>
+		<%= link_to euler.at(i), :version => i %>
+		<% end %>
 	</div>
+</div>
+<div class="kid-block radius-block border-box">
+	<%= render :partial => 'other/user_info', :locals => {:user => @question.user} %>
+</div>
+<div id="create-answer" style="display:none">
+	<div class="block radius-block border-box block-margin">
+		<%= render :partial => @answer = Answer.new %>
+	</div>
+</div>
+<div style="clear:both"></div>
+<!-- Answers start -->
+<h3><%= @question.answers.count %> 个答案</h3>
+<div id="answers">
+	<%= render :partial => "answers/show_answer", :collection => @question.answers.sort {|a,b| b.votes_trend <=> a.votes_trend } %>
 </div>
