@@ -2,19 +2,19 @@
 <div class="status">
 	<div class="vote">
 		<div class="number">
-			<%= show_question.votes_trend %>
+			<%= to_k show_question.votes_trend %>
 		</div>
 		<div class="owner">投票</div>
 	</div>
 	<div class="answer">
 		<div class="number">
-			<%= show_question.answers.count %>
+			<%= to_k show_question.answers.count %>
 		</div>
 		<div class="owner">答案</div>
 	</div>
 	<div class="view">
 		<div class="number">
-			<%= show_question.views %>
+			<%= to_k show_question.views %>
 		</div>
 		<div class="owner">浏览</div>
 	</div>
