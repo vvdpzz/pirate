@@ -99,7 +99,7 @@ h3 {
 	float:left; width:100%; border: 2px solid #ccc; background:white; padding:8px; margin-top:15px;
 }
 .add-comment {
-	float:right; font-size:13px;
+	float:right;
 }
 .margin {
 	margin-bottom:20px; }
@@ -108,4 +108,7 @@ h3 {
 }
 .update-border {
 	border: 2px solid #ccc; padding:8px; margin-top:15px;
+}
+.small-font {
+	font-size:13px;
 }

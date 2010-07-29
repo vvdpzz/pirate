@@ -13,7 +13,7 @@
 <div class="block radius-block-bottom border-box">
 	<div class="left-block">
 	</div>
-	<div class="right-block">
+	<div class="right-block small-font">
 		<%= link_to '回答', new_question_answer_path(@question), :remote => true %>
 		<% if can? :edit, @question %>
 			<%= link_to '编辑', edit_question_path(@question) %>

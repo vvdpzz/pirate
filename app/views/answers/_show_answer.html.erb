@@ -1,5 +1,5 @@
 <%= div_for show_answer do %>
-<div class="block radius-block border-box margin">
+<div class="block block-top radius-block radius-block-top border-box">
 	<div class="left-block">
 		<div class="votes_trend" id="vote_trend_<%= show_answer.class %>_<%= show_answer.id %>"><%= show_answer.votes_trend %></div>
 	</div>
@@ -8,6 +8,15 @@
 			<%= safe_html_out_for(show_answer.body) %>
 		</div>
 		<%= render :partial => 'comments_module', :locals => {:whose => show_answer} %>
+	</div>
+</div>
+<div class="block radius-block-bottom border-box margin">
+	<div class="left-block">
+	</div>
+	<div class="right-block small-font">
+		<% if can? :edit, show_answer %>
+			<%= link_to '编辑', [:edit,@question,show_answer] %>
+		<% end %>
 	</div>
 </div>
 <div class="kid-block radius-block border-box">
