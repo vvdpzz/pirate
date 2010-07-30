@@ -18,18 +18,9 @@ class User < ActiveRecord::Base
   has_many :badges, :through => :badgings
   has_many :favourites
   is_gravtastic!
-  def add_badge(badge_id)
-    exist = self.badgings.find_by_badge_id(badge_id)
-    if exist
-      exist.times +=1
-      exist.save
-    else
-      new_badge = self.badgings.build(:badge_id => badge_id)
-		  new_badge.save
-		end
-  end
+  
   private
     def create_profile
-      self.profile ||= Profile.new
+      self.profile ||= Profile.new(:real_name => "路人甲", :display_name => "user")
     end
 end
