@@ -36,5 +36,5 @@
 <!-- Answers start -->
 <h3><span id="answers-count"><%= to_k @question.answers.count %></span> 个答案</h3>
 <div id="answers">
-	<%= render :partial => "answers/show_answer", :collection => @question.answers.sort {|a,b| b.votes_trend <=> a.votes_trend}%>
+	<%= render :partial => "answers/show_answer", :collection => @question.answers.sort {|a,b| ([b.correct,b.votes_trend] <=> [a.correct,a.votes_trend])}%>
 </div>

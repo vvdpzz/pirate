@@ -2,17 +2,17 @@
 <div class="block block-top radius-block radius-block-top border-box">
 	<div class="left-block">
 		<%= render :partial => 'other/vote_module', :locals => {:whose => show_answer} %>
-		<% if show_answer.question.answer_id ==0 
-			if current_user.id == show_answer.question.user_id %>
+		<% if show_answer.question.answer_id ==0 %>
+			<% if current_user.id == show_answer.question.user_id %>
 			<div class="correct-answer" id="correct-answer-<%= show_answer.id %>">
 				<%= link_to '', correct_url(:question_id => show_answer.question.id, :correct_id => show_answer.id), :remote => true, :class => "correct" %>
 			</div>
-		<% end
-		else
-			if show_answer.question.answer_id == show_answer.id %>
+			<% end %>
+		<% else %>
+			<% if show_answer.question.answer_id == show_answer.id %>
 				<div class="correct-on"></div>
-			<% end
-		end -%>
+			<% end %>
+		<% end %>
 	</div>
 	<div class="right-block">
 		<div class="mainwords">

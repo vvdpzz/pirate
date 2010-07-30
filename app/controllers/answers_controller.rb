@@ -45,7 +45,7 @@ class AnswersController < ApplicationController
   # POST /answers.xml
   def create
     @answer = @question.answers.build(params[:answer])
-    @answer.user_id = current_user
+    @answer.user_id = current_user.id
 
     respond_to do |format|
       if @answer.save
