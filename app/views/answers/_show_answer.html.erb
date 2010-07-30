@@ -1,13 +1,24 @@
 <%= div_for show_answer do %>
 <div class="block block-top radius-block radius-block-top border-box">
 	<div class="left-block">
-		<div class="votes_trend" id="vote_trend_<%= show_answer.class %>_<%= show_answer.id %>"><%= show_answer.votes_trend %></div>
+		<%= render :partial => 'other/vote_module', :locals => {:whose => show_answer} %>
+		<% if show_answer.question.answer_id ==0 
+			if current_user.id == show_answer.question.user_id %>
+			<div class="correct-answer" id="correct-answer-<%= show_answer.id %>">
+				<%= link_to '', correct_url(:question_id => show_answer.question.id, :correct_id => show_answer.id), :remote => true, :class => "correct" %>
+			</div>
+		<% end
+		else
+			if show_answer.question.answer_id == show_answer.id %>
+				<div class="correct-on"></div>
+			<% end
+		end -%>
 	</div>
 	<div class="right-block">
 		<div class="mainwords">
-			<%= safe_html_out_for(show_answer.body) %>
+			<%= safe_html_out_for(RedCloth.new(show_answer.body).to_html) %>
 		</div>
-		<%= render :partial => 'comments_module', :locals => {:whose => show_answer} %>
+		<%= render :partial => 'other/comments_module', :locals => {:whose => show_answer} %>
 	</div>
 </div>
 <div class="block radius-block-bottom border-box margin">
@@ -17,6 +28,9 @@
 		<% if can? :edit, show_answer %>
 			<%= link_to '编辑', [:edit,@question,show_answer] %>
 		<% end %>
+		<div class="versions">
+			<%= euler show_answer.version %>
+		</div>
 	</div>
 </div>
 <div class="kid-block radius-block border-box">

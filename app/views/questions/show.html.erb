@@ -1,13 +1,14 @@
 <h3><%= @question.title %></h3>
 <div class="block block-top radius-block radius-block-top border-box">
 	<div class="left-block">
-		<div class="votes_trend" id="vote_trend_<%= @question.class %>_<%= @question.id %>"><%= @question.votes_trend %></div>
+		<%= render :partial => 'other/vote_module', :locals => {:whose => @question} %>
+		<%= render :partial => 'other/favourite_module', :locals => {:whose => @question} %>
 	</div>
 	<div class="right-block">
 		<div class="mainwords">
 			<%= safe_html_out_for(@question.body) %>
 		</div>
-		<%= render :partial => 'comments_module', :locals => {:whose => @question} %>
+		<%= render :partial => 'other/comments_module', :locals => {:whose => @question} %>
 	</div>
 </div>
 <div class="block radius-block-bottom border-box">
@@ -18,10 +19,9 @@
 		<% if can? :edit, @question %>
 			<%= link_to '编辑', edit_question_path(@question) %>
 		<% end %>
-		<% euler = euler(@question.version) %>
-		<% for i in 0..euler.length-1 do %>
-		<%= link_to euler.at(i), :version => i %>
-		<% end %>
+		<div class="versions">
+			<%= euler @question.version %>
+		</div>
 	</div>
 </div>
 <div class="kid-block radius-block border-box">
@@ -34,7 +34,7 @@
 </div>
 <div style="clear:both"></div>
 <!-- Answers start -->
-<h3><%= @question.answers.count %> 个答案</h3>
+<h3><span id="answers-count"><%= to_k @question.answers.count %></span> 个答案</h3>
 <div id="answers">
-	<%= render :partial => "answers/show_answer", :collection => @question.answers.sort {|a,b| b.votes_trend <=> a.votes_trend } %>
+	<%= render :partial => "answers/show_answer", :collection => @question.answers.sort {|a,b| b.votes_trend <=> a.votes_trend}%>
 </div>

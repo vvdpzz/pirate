@@ -1,4 +1,4 @@
-$("<%= escape_javascript(render :partial => "show_question", :collection => @questions) %>").hide().appendTo("#content").slideDown("slow");
+$("<%= escape_javascript(render :partial => "show_question", :collection => @questions) %>").hide().appendTo("#wrapper").slideDown("slow");
 $('#loadmore').removeClass('loadicon');
 <% if @questions.size < 10 %>
 	$('#loadmore').html("没有了");

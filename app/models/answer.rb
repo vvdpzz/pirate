@@ -4,4 +4,5 @@ class Answer < ActiveRecord::Base
   has_many :comments, :as => :commentable
   acts_as_voteable
   validates_presence_of :body
+  versioned
 end

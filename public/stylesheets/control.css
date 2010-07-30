@@ -16,9 +16,6 @@
 	.auth-text a{
 		color:gray; text-decoration:none; }
 
-.big-header {
-	border-bottom:1px solid #555; margin-bottom:20px; }
-
 #user-avatar {
 	padding:0px 20px 8px;
 }

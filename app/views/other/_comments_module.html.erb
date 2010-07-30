@@ -5,7 +5,7 @@
 <% end %>
 	<table>
 		<tbody>
-			<%= render :partial => "comments/show_comment", :collection => whose.comments[0..2] %>
+			<%= render :partial => "comments/show_comment", :collection => whose.comments %>
 		</tbody>
 	</table>
 	<div id="create-comment-<%= whose.class %>-<%= whose.id %>" class="create-comment" style="display:none">

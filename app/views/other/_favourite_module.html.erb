@@ -1,0 +1,5 @@
+<% if current_user.favourites.find_by_question_id(whose.id) %>
+<%= link_to '', favourites_path(:question_id => whose), :remote => true, :class => "star-on", :id => "favourite" %>
+<% else %>
+<%= link_to '', favourites_path(:question_id => whose), :remote => true, :class => "star", :id => "favourite" %>
+<% end %>

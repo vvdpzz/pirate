@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :notifies
   has_many :badgings
   has_many :badges, :through => :badgings
+  has_many :favourites
   is_gravtastic!
   def add_badge(badge_id)
     exist = self.badgings.find_by_badge_id(badge_id)
