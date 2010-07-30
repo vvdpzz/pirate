@@ -4,6 +4,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.database_authenticatable :null => false
       t.recoverable
       t.rememberable
+      t.integer :nscount, :default => 1
+      t.integer :cc, :default => 1
       t.trackable
       # t.string :roles, :default => "--- []"
 

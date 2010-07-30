@@ -20,6 +20,6 @@ class User < ActiveRecord::Base
   
   private
     def create_profile
-      self.profile ||= Profile.new
+      self.profile ||= Profile.new(:real_name => "路人甲", :display_name => "user")
     end
 end

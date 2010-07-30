@@ -104,6 +104,8 @@ ActiveRecord::Schema.define(:version => 20100724090925) do
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
+    t.integer  "nscount",                             :default => 1
+    t.integer  "cc",                                  :default => 1
     t.integer  "sign_in_count",                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"

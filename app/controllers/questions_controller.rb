@@ -25,6 +25,14 @@ class QuestionsController < ApplicationController
       format.js
       format.json { render :text => @questions.to_json }
     end
+    # current_time = Time.now
+    if 1.day.ago.month == current_user.last_sign_in_at.month and 1.day.ago.day == current_user.last_sign_in_at.day
+      # and (current_time.month != current_user.current_sign_in_at.month) and (current_time.day != current_user.current_sign_in_at.day)
+      current_user.nscount += 1
+    else
+      current_user.nscount = 1
+    end
+    current_user.save
   end
   
   def unanswered
