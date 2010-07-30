@@ -10,6 +10,15 @@ class QuestionsController < ApplicationController
     end
   end
   
+  def correct
+    @question = Question.find(params[:question_id])
+    @question.answer_id = params[:correct_id]
+    @question.save
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   # GET /questions
   # GET /questions.xml
   def index
@@ -53,10 +62,13 @@ class QuestionsController < ApplicationController
   # GET /questions/1.xml
   def show
     @question = Question.find(params[:id])
+    @question.body = RedCloth.new(@question.body).to_html
     @question.revert_to(params[:version].to_i) if params[:version]
-    if session["question_viewed_#{@question.id}"] == nil
-      session["question_viewed_#{@question.id}"] = 1
-      @question.update_attributes(:views => @question.views+1)
+    @question.skip_version do
+      if session["question_viewed_#{@question.id}"] == nil
+        session["question_viewed_#{@question.id}"] = 1
+        @question.update_attributes(:views => @question.views+1)
+      end
     end
 
     respond_to do |format|
@@ -84,8 +96,7 @@ class QuestionsController < ApplicationController
   # POST /questions.xml
   def create
     @question = @user.questions.build(params[:question])
-    @question.body = RedCloth.new(@question.body).to_html
-
+    
     respond_to do |format|
       if @question.save
         format.html { redirect_to(@question, :notice => 'Question was successfully created.') }
@@ -104,7 +115,6 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       params[:question][:updated_by] = current_user
-      params[:question][:body] = RedCloth.new(params[:question][:body]).to_html
       if @question.update_attributes(params[:question])
         format.html { redirect_to(@question, :notice => 'Question was successfully updated.') }
         format.xml  { head :ok }

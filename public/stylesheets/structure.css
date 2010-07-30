@@ -5,7 +5,7 @@
 	
 }
 #wrapper {
-	
+	float:left;
 }
 #footer{
 	
@@ -17,7 +17,8 @@ h3 {
 	float:left; line-height:1.4; color:#555; font-size:15px;
 }
 .votes_trend {
-	width:100%; color:#999; font-size:28px; font-weight:bold; text-align:center;
+	float:left; width:100%; color:#999; font-size:28px; font-weight:bold; text-align:center;
+	-webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius:6px;
 }
 .block {
 	float:left; width:720px; border: 2px solid #E6E6E6; background:white; padding:8px; }
@@ -111,4 +112,41 @@ h3 {
 }
 .small-font {
 	font-size:13px;
+}
+.vote-up{
+	float:left; width:40px; height:24px; background:url(/images/vote-up.png) no-repeat;
+}
+.vote-up:hover{
+	float:left; width:40px; height:24px; background:url(/images/vote-up-light.png) no-repeat;
+}
+
+.vote-down{
+	float:left; width:40px; height:24px; background:url(/images/vote-down.png) no-repeat;
+}
+.vote-down:hover{
+	float:left; width:40px; height:24px; background:url(/images/vote-down-light.png) no-repeat;
+}
+.star{
+	float:left; width:40px; height:32px; background:url(/images/star.png) no-repeat;
+}
+.star:hover{
+	float:left; width:40px; height:32px; background:url(/images/star-light.png) no-repeat;
+}
+.star-on {
+	float:left; width:40px; height:32px; background:url(/images/star-light.png) no-repeat;
+}
+.versions {
+	float:right; color:#ccc;
+}
+.correct{
+	float:left; width:40px; height:32px; background:url(/images/correct.png) no-repeat;
+}
+.correct:hover{
+	float:left; width:40px; height:32px; background:url(/images/correct-light.png) no-repeat;
+}
+.correct-answer{
+	float:left;
+}
+.correct-on{
+	float:left; width:40px; height:32px; background:url(/images/correct-light.png) no-repeat;
 }

@@ -16,6 +16,7 @@ class AnswersController < ApplicationController
   # GET /answers/1.xml
   def show
     @answer = @question.answers.find(params[:id])
+    @answer.body = RedCloth.new(@answer.body).to_html
 
     respond_to do |format|
       format.html # show.html.erb
@@ -44,14 +45,12 @@ class AnswersController < ApplicationController
   # POST /answers.xml
   def create
     @answer = @question.answers.build(params[:answer])
-    @answer.body = RedCloth.new(@answer.body).to_html
     @answer.user_id = current_user
 
     respond_to do |format|
       if @answer.save
         notification = "#{@answer.user.email}回答了你的问题"
         send_notification @answer, "answer", notification
-        format.html { redirect_to(@question, :notice => 'Answer was successfully created.') }
         format.js
       else
         format.html { render :action => "new" }

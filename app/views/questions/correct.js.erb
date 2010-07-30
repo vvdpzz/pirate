@@ -1,0 +1,7 @@
+$('#correct-answer-<%=@question.answer_id%> a').remove();
+$('#correct-answer-<%=@question.answer_id%>').addClass("correct-on");
+<% @question.answers.each do |answer| %>
+	<% if answer.id != @question.answer_id %>
+		$('#correct-answer-<%=answer.id%>').remove();
+	<% end %>
+<% end %>
