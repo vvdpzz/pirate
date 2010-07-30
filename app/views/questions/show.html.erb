@@ -15,8 +15,6 @@
 	<div class="left-block">
 	</div>
 	<div class="right-block small-font">
-		<%= link_to 'Vote Up', {:controller => :votes, :action => :vote_up, :voteable => 'question', :id => @question.id}, :remote => true %>
-		<%= link_to 'Vote Down',{:controller => :votes, :action => :vote_down, :voteable => 'question', :id => @question.id}, :remote => true %>
 		<%= link_to '回答', new_question_answer_path(@question), :remote => true %>
 		<% if can? :edit, @question %>
 			<%= link_to '编辑', edit_question_path(@question) %>

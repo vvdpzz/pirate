@@ -5,7 +5,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.recoverable
       t.rememberable
       t.integer :nscount, :default => 1
-      t.integer :cc, :default => 1
       t.trackable
       # t.string :roles, :default => "--- []"
 
