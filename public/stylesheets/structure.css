@@ -253,3 +253,12 @@ h3 {
 	width:70%; border:1px solid #ccc; font-size:16px; padding:3px; margin:5px 0px; }
 .profile-ta {
 	width:100%; border:1px solid #ccc; font-size:16px; padding:3px; margin:5px 0px; height:200px; line-height:1.4; }
+/**/
+.tag-td{
+	float:left; width:140px; margin:8px;
+}
+.big-tag {
+	float:left; border:2px solid #36c; padding:2px 8px; font-size:14px; }
+.tag-count{
+	color:#555; vertical-align:middle; margin-left:3px;
+}

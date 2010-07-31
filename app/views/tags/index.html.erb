@@ -1,4 +1,4 @@
-<div class='big-header'><h3>所有标签</h3></div>	
-<% @tags.each do |tag|  %>
-	<%= tag.name %><br/>
-<% end -%>
+<h3>所有标签</h3>
+<%= render :partial => "other/tag",
+		   :collection => @tags.sort {|a,b| (b.count <=> a.count)} %>
+<%= will_paginate @tags %>
