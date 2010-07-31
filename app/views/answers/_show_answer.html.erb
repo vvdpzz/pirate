@@ -1,5 +1,9 @@
 <%= div_for show_answer do %>
+<% if show_answer.id == show_answer.question.answer_id %>
+<div class="block block-top radius-block radius-block-top border-box select-answer">
+<% else %>
 <div class="block block-top radius-block radius-block-top border-box">
+<% end -%>
 	<div class="left-block">
 		<%= render :partial => 'other/vote_module', :locals => {:whose => show_answer} %>
 		<% if show_answer.question.answer_id ==0 %>
@@ -21,7 +25,11 @@
 		<%= render :partial => 'other/comments_module', :locals => {:whose => show_answer} %>
 	</div>
 </div>
+<% if show_answer.id == show_answer.question.answer_id %>
+<div class="block radius-block-bottom border-box margin select-answer">
+<% else %>
 <div class="block radius-block-bottom border-box margin">
+<% end -%>
 	<div class="left-block">
 	</div>
 	<div class="right-block small-font">

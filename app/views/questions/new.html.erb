@@ -1,2 +1,7 @@
-<div class='big-header'><h3>提问</h3></div>	
-<%= render 'form' %>
+<div class="normal-block">
+	<h3>提问</h3>
+	<%= render :partial => 'form', :locals => { :button_name => '提问'} %>
+	<div style="float:right">
+	<%= link_to '返回', root_path %>
+</div>
+</div>

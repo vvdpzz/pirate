@@ -1,7 +1,5 @@
 <h3>问题</h3>
-<%= render :partial => "show_question", :collection => @questions %>
-<% content_for :loadmore do %>
-<div id="endless">
-	<div id="loadmore" nHd="0" pHu="/questions/index/">载入更多</div>
+<div id="questions">
+	<%= render :partial => "show_question", :collection => @questions %>
+	<%= will_paginate @questions %>
 </div>
-<% end %>

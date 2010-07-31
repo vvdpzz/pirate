@@ -1,1 +1,7 @@
-<%= render 'answer' %>
+<div class="normal-block">
+	<h3>编辑答案</h3>
+	<%= render :partial => 'answer', :locals => {:button_name => "编辑答案"} %>
+	<div style="float:right">
+		<%= link_to '返回', question_path(@answer.question) %>
+	</div>
+</div>

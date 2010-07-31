@@ -6,7 +6,13 @@
 		</div>
 		<div class="owner">投票</div>
 	</div>
-	<div class="answer">
+	<% if show_question.answer_id !=0 %>
+	<div class="answer exist">
+	<% elsif show_question.answers.count >0 %>
+	<div class="answer pending">
+	<% else %>
+	<div class="answer none">
+	<% end -%>
 		<div class="number">
 			<%= to_k show_question.answers.count %>
 		</div>
@@ -25,7 +31,7 @@
 	</div>
 	<div class="user">
 		<%= link_to show_question.user.profile.real_name, show_question %>
-		<span class="reputation"><%= show_question.user.profile.reputation %></span>
+		<span class="reputation"><%= to_k show_question.user.profile.reputation %></span>
 	</div>
 	<div class="tags">
 		<%= render :partial => "other/show_tag", :collection => show_question.tag_list %>

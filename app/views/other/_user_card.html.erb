@@ -1,0 +1,28 @@
+<div class="user-card radius-block">
+	<table>
+		<tbody>
+			<tr>
+				<td>
+					<div class="avatar">
+						<%= image_tag user_card.gravatar_url(:size => 32) %>
+					</div>
+				</td>
+				<td>
+					<div class="user-name">
+						<%= link_to user_card.profile.real_name, user_card %>
+					</div>
+					<table>
+						<tbody>
+							<tr>
+								<td class="honor-td rp"><%= to_k user_card.profile.reputation %></td>
+								<td class="honor-td"><div class="golden"></div></td><td class="metal-number"><%= user_card.badges.where("metal = ?","金").count %></div></td>
+								<td class="honor-td"><div class="silver"></div></td><td class="metal-number"><%= user_card.badges.where("metal = ?","银").count %></div></td>
+								<td class="honor-td"><div class="bronze"></div></td><td class="metal-number"><%= user_card.badges.where("metal = ?","铜").count %></div></td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,1 +1,57 @@
-<%= render 'form' %>
+<h3><%= @user.profile.display_name%></h3>
+<%= form_for @profile, :url => { :action => 'update' } do |f| %>
+	<table>
+		<tr>
+			<td style="vertical-align:top; width:170px">
+				<table>
+					<tr>
+						<td id="user-avatar">
+							<%= image_tag @user.gravatar_url(:size => 128) %>
+						</td>
+					</tr>
+					<tr>
+						<td class="summaryinfo">
+							<div class="summarycount"><%= @profile.reputation %>
+								<span style="font-weight:bold;font-size:18px">RP</span>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td style="vertical-align:top;">
+				<table class="user-details">
+					<tr>
+						<td>昵称</td><td><%= f.text_field :display_name, :class => 'profile-tf' %></td>
+					</tr>
+					<tr>
+						<td>实名</td><td><%= f.text_field :real_name, :class => 'profile-tf' %></td>
+					</tr>
+					<tr>
+						<td>年龄</td><td><%= f.text_field :age, :class => 'profile-tf' %></td>
+					</tr>
+					<tr>
+						<td>性别</td><td><%= f.text_field :gender, :class => 'profile-tf' %></td>
+					</tr>
+					<tr>
+						<td>学校</td><td><%= f.text_field :school, :class => 'profile-tf' %></td>
+					</tr>
+					<tr>
+						<td>位置</td><td><%= f.text_field :location, :class => 'profile-tf' %></td>
+					</tr>
+					<tr>
+						<td>网站</td><td><%= f.text_field :website, :class => 'profile-tf' %></td>
+					</tr>
+					<tr>
+						<td style="vertical-align:top">关于我</td><td><%= f.text_area :about_me , :id => 'need_preview', :class => 'profile-ta border-box'%></td>
+					</tr>
+					<tr>
+						<td></td><td><div id="preview"></div></td>
+					</tr>
+					<tr>
+						<td><%= f.submit '更新', :class => 'ui-button ui-widget ui-state-default ui-corner-all' %></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+<% end -%>

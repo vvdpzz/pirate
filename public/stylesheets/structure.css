@@ -20,6 +20,7 @@ h3 {
 	float:left; width:100%; color:#999; font-size:28px; font-weight:bold; text-align:center;
 	-webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius:6px;
 }
+
 .block {
 	float:left; width:720px; border: 2px solid #E6E6E6; background:white; padding:8px; }
 	.block-top {
@@ -74,8 +75,16 @@ h3 {
 .block-margin {
 	margin-top:10px;
 }
+
+/* answer */
 #create-answer {
 	float:left;
+}
+#answers {
+	float:left; width:100%;
+}
+#answers > .answer {
+	float:left; width:100%;
 }
 
 /* button margin */
@@ -113,6 +122,8 @@ h3 {
 .small-font {
 	font-size:13px;
 }
+
+/* vote */
 .vote-up{
 	float:left; width:40px; height:24px; background:url(/images/vote-up.png) no-repeat;
 }
@@ -126,6 +137,8 @@ h3 {
 .vote-down:hover{
 	float:left; width:40px; height:24px; background:url(/images/vote-down-light.png) no-repeat;
 }
+
+/* add to favourite */
 .star{
 	float:left; width:40px; height:32px; background:url(/images/star.png) no-repeat;
 }
@@ -135,9 +148,13 @@ h3 {
 .star-on {
 	float:left; width:40px; height:32px; background:url(/images/star-light.png) no-repeat;
 }
+
+/* version control */
 .versions {
 	float:right; color:#ccc;
 }
+
+/* set correct answer */
 .correct{
 	float:left; width:40px; height:32px; background:url(/images/correct.png) no-repeat;
 }
@@ -150,3 +167,89 @@ h3 {
 .correct-on{
 	float:left; width:40px; height:32px; background:url(/images/correct-light.png) no-repeat;
 }
+
+/* pagination */
+.pagination{
+	float:left; padding:1em 0; width:100%; text-align:center;
+}
+.pagination > em{
+	font-weight: bold; font-style:normal;
+}
+.pagination a, .pagination span {
+	border:1px solid #ccc; padding:3px 4px;
+}
+.pagination span.current {
+	font-weight: bold; font-style:normal;
+}
+.pagination a:hover, .pagination a:focus {
+	text-decoration: underline;
+}
+.pagination span.disabled {
+	color: #AAA;
+}
+
+/* index style */
+#questions {
+	float:left; width:720px;
+}
+.question {
+	float:left; width:100%; border-bottom:1px dotted #ddd; padding:10px 0; }
+
+.status {
+	float:left; width:240px; }
+	.status > .vote {
+		float:left; width:70px; margin-right:10px; color:#555; }
+		.status > .vote > .number {
+			text-align:center; font-size:24px; font-weight:bold; }
+		.status > .vote > .owner {
+			text-align:center; font-size:13px; }
+	.status > .answer {
+		float:left; width:70px; margin-right:10px; }
+		.status > .none {
+			color:#d67376; }
+		.status > .pending {
+			color:#fca93e; }
+		.status > .exist {
+			color:#71A311; }
+		.status > .answer > .number {
+			text-align:center; font-size:24px; font-weight:bold; }
+		.status > .answer > .owner {
+			text-align:center; font-size:13px; }
+	.status > .view {
+		float:left; width:70px; margin-right:10px; color:#999;}
+		.status > .view > .number {
+			text-align:center; font-size:24px; font-weight:bold; }
+		.status > .view > .owner {
+			text-align:center; font-size:13px; }
+	
+.summary {
+	margin-left:240px; }
+	.title {
+		font-size:17px; margin-bottom:5px; }
+	.user {
+		float:right; font-size:13px; margin-top: 5px; }
+		.reputation {
+			color:#555;	}
+	.tags {
+		float:left; width:80%; }
+		.tag {
+			float:left; border:2px solid #36c; margin-right:10px; padding:1px 6px; font-size:12px; }
+/* */
+.select-answer{
+	-moz-box-shadow:0px 0px 10px #06C; -webkit-box-shadow:0px 0px 10px #06C; box-shadow:0px 0px 10px #06C;
+}
+.vote-answer{
+	-moz-box-shadow:0px 0px 10px #71A311; -webkit-box-shadow:0px 0px 10px #71A311; box-shadow:0px 0px 10px #71A311;
+}
+/* normal size*/
+.normal-block{
+	float:left; width:720px;
+}
+.user-card{
+	float:left; width:200px; border: 2px solid #E6E6E6; background:white; padding:8px; margin:8px;
+}
+/**/
+.profile-tf {
+	width:70%; border:1px solid #ccc; font-size:16px; padding:3px; margin:5px 0px; }
+.profile-ta {
+	width:100%; border:1px solid #ccc; font-size:16px; padding:3px; margin:5px 0px; height:200px; line-height:1.4; }

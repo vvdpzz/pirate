@@ -16,9 +16,7 @@ Return0::Application.routes.draw do |map|
   post 'comments/create'
 
   match 'questions/tagged/:tag' => 'questions#tagged', :as => :tagged
-  match 'questions/index/:times' => 'questions#index', :as => :load_questions
   match 'questions/:question_id/correct/:correct_id' => 'questions#correct', :as => :correct
-  match 'unanswered/:times' => 'questions#unanswered', :as => :load_unanswered
   match 'unanswered/' => 'questions#unanswered', :as => :unanswered
   
   resources :questions do

@@ -19,6 +19,9 @@
 		<% if can? :edit, @question %>
 			<%= link_to '编辑', edit_question_path(@question) %>
 		<% end %>
+		<% if @question.user.id == current_user.id %>
+			<%= link_to '删除', @question, :confirm => '确定要删除此问题吗？', :method => :delete %>
+		<% end -%>
 		<div class="versions">
 			<%= euler @question.version %>
 		</div>
@@ -29,12 +32,13 @@
 </div>
 <div id="create-answer" style="display:none">
 	<div class="block radius-block border-box block-margin">
-		<%= render :partial => @answer = Answer.new %>
+		<%= render :partial => @answer = Answer.new, :locals => {:button_name => "添加答案"} %>
 	</div>
 </div>
 <div style="clear:both"></div>
 <!-- Answers start -->
 <h3><span id="answers-count"><%= to_k @question.answers.count %></span> 个答案</h3>
 <div id="answers">
-	<%= render :partial => "answers/show_answer", :collection => @question.answers.sort {|a,b| ([b.correct,b.votes_trend] <=> [a.correct,a.votes_trend])}%>
+	<%= render :partial => "answers/show_answer",
+			   :collection => @question.answers.sort {|a,b| ([b.correct,b.votes_trend] <=> [a.correct,a.votes_trend])}%>
 </div>

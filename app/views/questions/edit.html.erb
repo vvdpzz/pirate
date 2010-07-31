@@ -1,6 +1,7 @@
-<h1>Editing question</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @question %> |
-<%= link_to 'Back', questions_path %>
+<div class="normal-block">
+	<h3>编辑问题</h3>
+	<%= render :partial => 'form', :locals => { :button_name => '编辑'} %>
+	<div style="float:right">
+		<%= link_to '返回', question_path(@question) %>
+	</div>
+</div>

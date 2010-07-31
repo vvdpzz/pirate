@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(:version => 20100729144407) do
     t.string   "real_name"
     t.integer  "age"
     t.string   "gender"
-    t.integer  "money",        :default => 100
     t.integer  "reputation",   :default => 1
     t.string   "website",      :default => "http://"
     t.string   "location"
@@ -112,8 +111,6 @@ ActiveRecord::Schema.define(:version => 20100729144407) do
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "nscount",                             :default => 1
-    t.integer  "cc",                                  :default => 1
     t.integer  "sign_in_count",                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -157,7 +154,6 @@ ActiveRecord::Schema.define(:version => 20100729144407) do
   end
 
   add_index "votes", ["voteable_id", "voteable_type"], :name => "fk_voteables"
-  add_index "votes", ["voter_id", "voter_type", "voteable_id", "voteable_type"], :name => "uniq_one_vote_only", :unique => true
   add_index "votes", ["voter_id", "voter_type"], :name => "fk_voters"
 
 end

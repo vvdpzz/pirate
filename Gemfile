@@ -6,7 +6,6 @@ gem 'rails', '3.0.0.beta4'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'ruby-mysql'
-# gem 'mysql', '2.8.1'
 gem 'devise','1.1.rc2'
 gem 'cancan'
 gem 'easy_roles'
@@ -16,6 +15,7 @@ gem 'rails3-jquery-autocomplete', '= 0.1.2', :require => 'autocomplete'
 gem 'RedCloth'
 gem 'vote_fu', :git => 'git://github.com/mayoral/vote_fu.git'
 gem 'gravtastic'
+gem "will_paginate", "~> 3.0.pre2"
 
 # Use unicorn as the web server
 # gem 'unicorn'

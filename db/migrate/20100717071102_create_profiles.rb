@@ -6,7 +6,6 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :real_name
       t.integer :age
       t.string :gender
-      t.integer :money, :default => 100
       t.integer :reputation, :default => 1
       t.string :website, :default => "http://"
       t.string :location

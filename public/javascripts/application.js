@@ -10,11 +10,4 @@ var preview = function(){
 }
 $(document).ready(function(){
 	setInterval(preview,100);
-	$('#loadmore').click(function() {
-		$(this).addClass('loadicon');
-		times = Number($('#loadmore').attr("nHd"))+1;
-		selector = $('#loadmore').attr("pHu");
-		$.get(selector+times, $(this).serialize(), null, "script");
-		$('#loadmore').attr("nHd",times);
-	});
 });

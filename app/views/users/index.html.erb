@@ -1,4 +1,4 @@
-<div class='big-header'><h3>所有用户</h3></div>	
-<% @users.each do |user|  %>
-	<%= link_to user.profile.real_name, user %><br/>
-<% end -%>
+<h3>所有用户</h3>
+<%= render :partial => 'other/user_card',
+		   :collection => @users.sort {|a,b| (b.profile.reputation <=> a.profile.reputation)} %>
+<%= will_paginate @users %>

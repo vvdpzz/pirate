@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.paginate :page => params[:page]
     respond_to do |format|
       format.html
     end
@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @profile = @user.profile
+    @profile.about_me = RedCloth.new(@profile.about_me).to_html
     respond_to do |format|
       format.html
     end
