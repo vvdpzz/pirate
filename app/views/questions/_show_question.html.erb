@@ -1,40 +1,25 @@
 <%= div_for show_question do %>
-<div class="status">
-	<div class="vote">
-		<div class="number">
-			<%= to_k show_question.votes_trend %>
-		</div>
-		<div class="owner">投票</div>
+<!-- js load -->
+<div class="stats-block">
+	<div class="stats">
+		<%= vote_block show_question %>
+		<%= answer_block show_question %>
 	</div>
-	<% if show_question.answer_id !=0 %>
-	<div class="answer exist">
-	<% elsif show_question.answers.count >0 %>
-	<div class="answer pending">
-	<% else %>
-	<div class="answer none">
-	<% end -%>
-		<div class="number">
-			<%= to_k show_question.answers.count %>
-		</div>
-		<div class="owner">答案</div>
-	</div>
-	<div class="view">
-		<div class="number">
-			<%= to_k show_question.views %>
-		</div>
-		<div class="owner">浏览</div>
-	</div>
+	<%= view_block show_question %>
 </div>
-<div class="summary">
-	<div class="title">
-		<%= link_to show_question.title, show_question %>
-	</div>
-	<div class="user">
-		<%= link_to show_question.user.profile.real_name, show_question %>
-		<span class="reputation"><%= to_k show_question.user.profile.reputation %></span>
+<!-- js load end -->
+<div class="summary-block">
+	<h3><%= link_to show_question.title, show_question %></h3>
+	<div class="excerpt">
+		<%= safe_html_out_for truncate(show_question.body, length=120) %>
 	</div>
 	<div class="tags">
 		<%= render :partial => "other/show_tag", :collection => show_question.tag_list %>
+	</div>
+	<div class="user_card">
+		<div style="float:left;font-size:13px;color:gray;">ask <%= time_ago_in_words show_question.created_at %> ago</div>
+		<div style="clear:both"></div>
+		<%= render :partial => 'other/user_card', :locals => {:user_card => show_question.user} %>
 	</div>
 </div>
 <% end %>

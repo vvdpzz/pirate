@@ -10,9 +10,6 @@
 #footer{
 	
 }
-h3 {
-	color: #636363;
-}
 .mainwords {
 	float:left; line-height:1.4; color:#555; font-size:15px;
 }
@@ -194,46 +191,13 @@ h3 {
 }
 .question {
 	float:left; width:100%; border-bottom:1px dotted #ddd; padding:10px 0; }
-
-.status {
-	float:left; width:240px; }
-	.status > .vote {
-		float:left; width:70px; margin-right:10px; color:#555; }
-		.status > .vote > .number {
-			text-align:center; font-size:24px; font-weight:bold; }
-		.status > .vote > .owner {
-			text-align:center; font-size:13px; }
-	.status > .answer {
-		float:left; width:70px; margin-right:10px; }
-		.status > .none {
-			color:#d67376; }
-		.status > .pending {
-			color:#fca93e; }
-		.status > .exist {
-			color:#71A311; }
-		.status > .answer > .number {
-			text-align:center; font-size:24px; font-weight:bold; }
-		.status > .answer > .owner {
-			text-align:center; font-size:13px; }
-	.status > .view {
-		float:left; width:70px; margin-right:10px; color:#999;}
-		.status > .view > .number {
-			text-align:center; font-size:24px; font-weight:bold; }
-		.status > .view > .owner {
-			text-align:center; font-size:13px; }
 	
-.summary {
-	margin-left:240px; }
 	.title {
 		font-size:17px; margin-bottom:5px; }
 	.user {
 		float:right; font-size:13px; margin-top: 5px; }
 		.reputation {
 			color:#555;	}
-	.tags {
-		float:left; width:80%; }
-		.tag {
-			float:left; border:2px solid #36c; margin-right:10px; padding:1px 6px; font-size:12px; }
 /* */
 .select-answer{
 	-moz-box-shadow:0px 0px 10px #06C; -webkit-box-shadow:0px 0px 10px #06C; box-shadow:0px 0px 10px #06C;
@@ -246,7 +210,7 @@ h3 {
 	float:left; width:720px;
 }
 .user-card{
-	float:left; width:200px; border: 2px solid #E6E6E6; background:white; padding:8px; margin:8px;
+	float:left; width:150px; background:white; margin:5px 0 0px;
 }
 /**/
 .profile-tf {
@@ -261,4 +225,87 @@ h3 {
 	float:left; border:2px solid #36c; padding:2px 8px; font-size:14px; }
 .tag-count{
 	color:#555; vertical-align:middle; margin-left:3px;
+}
+/*===================*/
+.border-box {
+	-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; }
+.radius {
+	-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius:3px; }
+	.tag-radius {
+		-webkit-border-radius:7px; -moz-border-radius:7px; border-radius:7px; }
+
+a{
+	color: #3D3D3D; text-decoration:none;
+}
+	a:hover{
+		color: #3D3D3D; text-decoration:underline;
+	}
+
+
+/* develop new style */
+.tags {
+	float:left; width:60%; margin-top:5px; }
+	.tag {
+		float:left; border: 2px solid #8C8C8C; margin-right:10px; padding:3px 4px; font-size:13px; }
+		.tag:hover{
+			background-color: #626262; color: #E7E7E7; text-decoration:none; 
+		}
+		.user_card{
+			float:right;
+		}
+.summary-block {
+	margin-left:94px; }
+	.summary-block h3{
+		font-size:17px; font-weight: bold; margin:0 0 5px;
+	}
+		.summary-block h3 a{
+			color: #3D3D3D;
+		}
+		.excerpt{
+			line-height: 1.3; font-size:14px;
+			color:#555;
+		}
+
+b, strong{
+	font-weight: bold;
+}
+.stats-block{
+	float: left;
+	width: 86px;
+	font-size:13px;
+}
+.stats{
+	margin: 0px 0px 0px 7px;
+	padding: 4px 7px 6px;
+	width: 58px;
+}
+.vote-block{
+text-align: center;
+}
+	.vote{
+		color: #AAA; padding: 0px 0px 7px; text-align: center;
+	}
+		.vote-count{
+			display: block; font-size: 31px;
+		}
+		.vote-block span{
+			display: block; color: #808185; font-weight: bold;
+		}
+.answer-block{
+	margin-top: -3px; padding: 4px 0px; text-align: center;
+}
+	.answer-block strong{
+		display: block; font-size: 18px;
+	}
+	.answered{
+		color: #fca93e;
+	}
+	.selected{
+		color: #849E52;
+	}
+	.unanswered{
+		color: #d67376;
+	}
+.view-block{
+	color: #999; padding-top: 4px; text-align: center; 
 }

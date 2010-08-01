@@ -23,4 +23,31 @@ module ApplicationHelper
     end
   end
   
+  def vote_block(question)
+    content_tag(:div, :class => "vote-block") do
+      content_tag(:div, :class => "vote") do
+        [content_tag(:strong, to_k(question.votes_trend), :class => "vote-count"),"投票"].join
+      end
+    end
+  end
+  
+  def answer_block(question)
+    if question.answer_id != 0
+      answer_status = "selected"
+    elsif question.answers.count > 0
+      answer_status = "answered"
+    else
+      answer_status = "unanswered"
+    end
+    content_tag(:div, :class => "answer-block #{answer_status}") do
+       [content_tag(:strong, to_k(question.answers.count)),"答案"].join
+    end
+  end
+  
+  def view_block(question)
+    content_tag(:div, :class => "view-block") do
+      [to_k(question.views)," 浏览"].join
+    end
+  end
+
 end
