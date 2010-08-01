@@ -17,9 +17,7 @@
 		<%= render :partial => "other/show_tag", :collection => show_question.tag_list %>
 	</div>
 	<div class="user_card">
-		<div style="float:left;font-size:13px;color:gray;">ask <%= time_ago_in_words show_question.created_at %> ago</div>
-		<div style="clear:both"></div>
-		<%= render :partial => 'other/user_card', :locals => {:user_card => show_question.user} %>
+		<div class="action-time">ask <span style="font-weight:bold"><%= time_ago_in_words show_question.created_at %></span> ago</div>
 	</div>
 </div>
 <% end %>

@@ -9,7 +9,7 @@ class Question < ActiveRecord::Base
   validates_presence_of :title, :body
   
   cattr_reader :per_page
-  @@per_page = 10
+  @@per_page = 30
   
   # def to_param
   #   "#{id}-#{title.gsub(" ","-")}"
