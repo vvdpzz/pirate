@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_filter :authenticate_user!, :load_user
   
   autocomplete :tag, :name
-  
+    
   def tagged
     @tagged_questions = Question.tagged_with(params[:tag])
     respond_to do |format|

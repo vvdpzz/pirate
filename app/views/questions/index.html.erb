@@ -1,4 +1,5 @@
 <h3>问题</h3>
+<% @flag = false %>
 <div id="questions">
 	<%= render :partial => "show_question", :collection => @questions %>
 	<%= will_paginate @questions %>

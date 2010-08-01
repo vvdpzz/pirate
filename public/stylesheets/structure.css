@@ -266,7 +266,7 @@ a{
 			color:#555;
 		}
 		.action-time{
-			float:left;font-size:13px;color:gray;
+			float:right; margin-top:5px; font-size:13px;color:gray;
 		}
 
 b, strong{

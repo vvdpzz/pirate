@@ -1,13 +1,5 @@
 <%= div_for show_question do %>
-<!-- js load -->
-<div class="stats-block">
-	<div class="stats">
-		<%= vote_block show_question %>
-		<%= answer_block show_question %>
-	</div>
-	<%= view_block show_question %>
-</div>
-<!-- js load end -->
+<%= render :partial => 'stats', :locals => {:show_question => show_question}%>
 <div class="summary-block">
 	<h3><%= link_to show_question.title, show_question %></h3>
 	<div class="excerpt">
@@ -16,8 +8,6 @@
 	<div class="tags">
 		<%= render :partial => "other/show_tag", :collection => show_question.tag_list %>
 	</div>
-	<div class="user_card">
-		<div class="action-time">ask <span style="font-weight:bold"><%= time_ago_in_words show_question.created_at %></span> ago</div>
-	</div>
+	<%= render :partial => 'action_time', :locals => {:show_question => show_question} %>
 </div>
 <% end %>

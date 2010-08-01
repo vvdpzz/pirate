@@ -1,7 +1,6 @@
 Return0::Application.routes.draw do |map|
   match 'questions/:id/favourites' => 'favourites#create', :as => :favourites
 
-  #match 'users' => 'users#index', :as => :users
   match 'tags' => 'tags#index', :as => :tags
   match 'badges' => 'badges#index', :as => :badges
 
@@ -12,7 +11,7 @@ Return0::Application.routes.draw do |map|
   resources :notifies
   devise_for :users
   resources :users
-  
+    
   post 'comments/create'
 
   match 'questions/tagged/:tag' => 'questions#tagged', :as => :tagged
