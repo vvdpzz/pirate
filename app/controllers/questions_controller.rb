@@ -1,6 +1,5 @@
 class QuestionsController < ApplicationController
   before_filter :authenticate_user!, :load_user
-  
   autocomplete :tag, :name, :full => true
     
   def tagged
@@ -28,7 +27,16 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.paginate :page => params[:page], :order => 'updated_at DESC'
+    if params[:sort].nil? or params[:sort] == "active"
+      @questions = Question.paginate :page => params[:page], :order => 'updated_at DESC'
+      set_tab :active
+    elsif params[:sort] == "newest"
+      @questions = Question.paginate :page => params[:page], :order => 'created_at DESC'
+      set_tab :newest
+    elsif params[:sort] == "vote"
+      @questions = Question.paginate :page => params[:page], :order => 'vote DESC'
+      set_tab :vote
+    end
     respond_to do |format|
       format.html
       format.js

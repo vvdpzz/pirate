@@ -32,4 +32,8 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def set_vote(object)
+    object.vote = object.votes_trend
+    object.save
+  end
 end

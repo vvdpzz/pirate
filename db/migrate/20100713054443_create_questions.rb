@@ -14,9 +14,12 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer :featured, :default => 0
       # featured = featured.to_i if featured > 0
       t.integer :views, :default => 0
+      
+      t.integer :vote, :default => 0
 
       t.timestamps
     end
+    add_index :questions, :user_id
   end
 
   def self.down

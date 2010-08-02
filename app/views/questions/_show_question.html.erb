@@ -3,7 +3,7 @@
 <div class="summary-block">
 	<h3><%= link_to show_question.title, show_question %></h3>
 	<div class="excerpt">
-		<%= safe_html_out_for truncate(show_question.body, length=120) %>
+		<%= safe_html_out_for truncate(show_question.body, :length => 130) %>
 	</div>
 	<div class="tags">
 		<%= render :partial => "other/show_tag", :collection => show_question.tag_list %>
