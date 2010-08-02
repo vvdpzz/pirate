@@ -5,6 +5,9 @@ class VotesController < ApplicationController
 		authorize! :vote_up, @qac
 		if not @qac.voted_by?(current_user)
       current_user.vote_for @qac
+      
+      set_vote(@qac)
+      
       increase_reputation @qac
       send_notification @qac, "vote_up", current_user
       respond_to do |format|
@@ -19,6 +22,9 @@ class VotesController < ApplicationController
 		authorize! :vote_down, @qac
     if not @qac.voted_by?(current_user)
       current_user.vote_against @qac
+      
+      set_vote(@qac)
+      
       decrease_reputation @qac
       send_notification @qac, "vote_down", current_user
       respond_to do |format|

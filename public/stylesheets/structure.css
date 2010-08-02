@@ -312,3 +312,46 @@ text-align: center;
 .view-block{
 	color: #999; padding-top: 4px; text-align: center; 
 }
+
+.subheader{
+	border-bottom: 1px solid #666;
+	clear: both;
+	height: 34px;
+	margin-bottom: 15px;
+}
+.subheader h1{
+	float: left;
+	font-size: 22px;
+	line-height: 34px;
+	margin-bottom: 0px;
+}
+
+#tabs{
+	float:right;
+}
+#tabs li {
+	display:inline; margin:0 5px;
+}
+#tabs a{
+	text-decoration: none;
+}
+#tabs a:hover{
+	text-decoration: none;
+}
+.inactive {
+	float: left; display: block;
+	border: 1px solid white; color: #777; font-size: 14px;
+	height: 24px; line-height: 22px;
+	padding: 0px 11px; margin: 8px 8px 0px 0px;
+}
+.inactive:hover{
+	border: 1px solid black; border-bottom-color: white;
+	line-height: 20px;
+	margin-top: 9px;
+}
+.active{
+	float: left; display: block;
+	border: 1px solid black; border-bottom-color: white; color: black; font-size: 14px;
+	height: 30px; line-height: 28px;
+	padding: 0px 11px; margin: 3px 8px 0px 0px;
+}

@@ -1,4 +1,11 @@
-<h3>问题</h3>
+<div class="subheader">
+	<h1>问题</h1>
+	<%= tabs_tag(:builder => MenuTabBuilder, :open_tabs => { :id => "tabs" }) do |tab| %>
+		<%= tab.newest '最新问题', { :controller => "questions", :action => "index", :sort => "newest" } %>
+		<%= tab.active '最近更新', { :controller => "questions", :action => "index", :sort => "active" } %>
+		<%= tab.vote '最多投票', { :controller => "questions", :action => "index", :sort => "vote" } %>
+	<% end %>
+</div>
 <% @flag = false %>
 <div id="questions">
 	<%= render :partial => "show_question", :collection => @questions %>

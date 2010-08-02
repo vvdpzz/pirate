@@ -19,7 +19,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
-        send_notification @answer, "answer", answer.user
+        send_notification @answer, "answer", @answer.user
         format.js
       else
         format.html { render :action => "new" }

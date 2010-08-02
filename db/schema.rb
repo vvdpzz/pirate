@@ -16,9 +16,13 @@ ActiveRecord::Schema.define(:version => 20100729144407) do
     t.integer  "question_id"
     t.text     "body"
     t.integer  "correct",     :default => 0
+    t.integer  "vote",        :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
+  add_index "answers", ["user_id"], :name => "index_answers_on_user_id"
 
   create_table "badges", :force => true do |t|
     t.string   "name"
@@ -40,9 +44,14 @@ ActiveRecord::Schema.define(:version => 20100729144407) do
     t.text     "body"
     t.integer  "commentable_id"
     t.string   "commentable_type"
+    t.integer  "vote",             :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "favourites", :force => true do |t|
     t.integer  "user_id"
@@ -83,9 +92,12 @@ ActiveRecord::Schema.define(:version => 20100729144407) do
     t.integer  "status",     :default => 0
     t.integer  "featured",   :default => 0
     t.integer  "views",      :default => 0
+    t.integer  "vote",       :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -111,7 +123,6 @@ ActiveRecord::Schema.define(:version => 20100729144407) do
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "nscount",                             :default => 1
     t.integer  "sign_in_count",                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"

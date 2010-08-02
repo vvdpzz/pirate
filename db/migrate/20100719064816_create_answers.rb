@@ -6,8 +6,12 @@ class CreateAnswers < ActiveRecord::Migration
       t.text :body
       t.integer :correct, :default => 0
       
+      t.integer :vote, :default => 0
+      
       t.timestamps
     end
+    add_index :answers, :user_id
+    add_index :answers, :question_id
   end
 
   def self.down
