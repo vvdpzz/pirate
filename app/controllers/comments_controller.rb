@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @comment = @qa.comments.build(:user_id  => current_user.id, :body => params[:body].to_s)
     @comment.save
 
-    send_notification @comment, "comment", comment.user
+    send_notification @comment, "comment", @comment.user
 		respond_to do |format|
 		  format.js
 	  end
