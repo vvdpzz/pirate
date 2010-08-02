@@ -1,3 +1,4 @@
 <tr id="comment_<%= show_comment.id %>" class="comment">
+	<td><%= render :partial => 'other/vote_module', :locals => {:whose => show_comment} %></td>
 	<td><%= show_comment.body %> – <%= link_to show_comment.user.profile.display_name, show_comment.user %> – <%= show_comment.created_at.strftime('%l:%M %p %v') %></td>
 </tr>
