@@ -12,16 +12,18 @@ class QuestionsController < ApplicationController
   
   def correct
     @question = Question.find(params[:question_id])
-    @question.skip_version do
-      @question.answer_id = params[:correct_id]
-      @answer = Answer.find(params[:correct_id])
-      @answer.correct = 1
-      @answer.save
-      @question.save
-      correct_reputation @answer
-    end
-    respond_to do |format|
-      format.js
+    if @question.created_at <= 1.day.ago
+      @question.skip_version do
+        @question.answer_id = params[:correct_id]
+        @answer = Answer.find(params[:correct_id])
+        @answer.correct = 1
+        @answer.save
+        @question.save
+        correct_reputation @answer
+      end
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
