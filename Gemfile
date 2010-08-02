@@ -11,9 +11,9 @@ gem 'cancan'
 gem 'easy_roles'
 gem 'acts-as-taggable-on'
 gem 'vestal_versions', :git => 'git://github.com/lailsonbm/vestal_versions', :branch => 'rails3'
-gem 'rails3-jquery-autocomplete', '= 0.1.2', :require => 'autocomplete'
+gem 'rails3-jquery-autocomplete', :git => 'git://github.com/vvdpzz/rails3-jquery-autocomplete'
 gem 'RedCloth'
-gem 'vote_fu', :git => 'git://github.com/mayoral/vote_fu.git'
+gem 'vote_fu', :git => 'git://github.com/vvdpzz/vote_fu'
 gem 'gravtastic'
 gem "will_paginate", "~> 3.0.pre2"
 
