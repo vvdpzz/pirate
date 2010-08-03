@@ -4,14 +4,46 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
   <title>Return0</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag "jquery-1.4.2.min.js","rails.js", "application.js", "jquery-ui.js", "autocomplete-rails.js" %>
   <%= csrf_meta_tag %>
 </head>
 <body>
 	<div id="container">
+		<div id="header">
+			<div id="logo">
+				<%= image_tag("/images/return0.png") %>
+			</div>
+			<ul id="nav">
+				<% if params[:controller] == "questions" and params[:action] != "new" and params[:action] != "unanswered" %>
+					<li><%= link_to "问题", questions_path, :class => "clicked" %></li>
+				<% else %>
+					<li><%= link_to "问题", questions_path, :class => "unclick" %></li>
+				<% end %>
+				<% if params[:controller] == "tags" %>
+					<li><%= link_to "标签", tags_path, :class => "clicked" %></li>
+				<% else %>
+					<li><%= link_to "标签", tags_path, :class => "unclick" %></li>
+				<% end %>
+				<% if params[:controller] == "users" %>
+					<li><%= link_to "用户", users_path, :class => "clicked" %></li>
+				<% else %>
+					<li><%= link_to "用户", users_path, :class => "unclick" %></li>
+				<% end %>
+				<% if params[:action] == "unanswered" %>
+					<li><%= link_to "待解决", unanswered_path, :class => "clicked" %></li>
+				<% else %>
+					<li><%= link_to "待解决", unanswered_path, :class => "unclick" %></li>
+				<% end %>
+				<% if params[:controller] == "questions" and params[:action] == "new" %>
+					<li><%= link_to "提问", new_question_path, :class => "clicked" %></li>
+				<% else %>
+					<li><%= link_to "提问", new_question_path, :class => "unclick" %></li>
+				<% end %>
+			</ul>
+		</div>
 		<div id="wrapper">
 			<%= yield %>
 		</div>
 	</div>
 </body>
+<%= javascript_include_tag "jquery-1.4.2.min.js", "rails.js", "application.js", "jquery-ui.js", "autocomplete-rails.js" %>
 </html>

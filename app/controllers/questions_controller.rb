@@ -54,14 +54,14 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    @question.body = RedCloth.new(@question.body).to_html
-    @question.revert_to(params[:version].to_i) if params[:version]
     @question.skip_version do
       if session["question_viewed_#{@question.id}"] == nil
         session["question_viewed_#{@question.id}"] = 1
         @question.update_attributes(:views => @question.views+1)
       end
     end
+    @question.revert_to(params[:version].to_i) if params[:version]
+    @question.body = RedCloth.new(@question.body).to_html
 
     respond_to do |format|
       format.html
@@ -78,12 +78,18 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find(params[:id])
+    @question.commit_message = nil
     authorize! :update, @question
+  end
+  
+  def history
+     @question = Question.find(params[:id])
   end
 
   def create
     @question = @user.questions.build(params[:question])
-    
+    @user.skill_list.add(params[:question][:tag_list].to_s.split(","))
+    @user.save
     respond_to do |format|
       if @question.save
         format.html { redirect_to(@question) }

@@ -24,6 +24,8 @@
 		<% end -%>
 		<%= link_to '举报', {:controller => :flags, :action => :flag, :user_id => current_user.id, :who => @question.class.name, :id => @question.id, :user => @question.user.id}, :confirm => '确定要举报此问题吗？', :remote => true %>
 		<div class="versions">
+			<%=  link_to "rollback", :version => @question.version-1  if @question.version-1 >0 %> | <%=  link_to "roll", :version => @question.version+1  if @question.version < @question.versions.count+1%>
+               | <%= link_to "查看历史版本", history_path%>
 			<%= euler @question.version %>
 		</div>
 	</div>

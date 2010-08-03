@@ -1,0 +1,9 @@
+<% (1..@question.versions.count).each do |i|%>
+	<% @question.revert_to(i+1) %>
+	<p>
+		<%= @question.version %>
+		<%= link_to safe_html_out_for(@question.commit_message), :action => "show", :version => i  %> |
+		update by: <%= @question.versions.find_by_versioned_id(i+1).user.profile.real_name %> at: <%=  @question.versions.find_by_versioned_id(i+1).updated_at.strftime('%m/%d/%y %H:%M:%S') %>
+	</p>
+<hr></hr>
+<%end%>

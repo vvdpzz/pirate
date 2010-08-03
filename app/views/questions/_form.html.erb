@@ -4,5 +4,6 @@
 	<div id="preview" class="border-box">
 	</div>
 	<%= f.text_field :tag_list, :autocomplete => autocomplete_tag_name_questions_path, :class  => 'tf border-box' %>
+	<%= f.text_field :commit_message, :class => 'tf border-box' %>
     <%= f.submit button_name, :class => 'ui-button ui-widget ui-state-default ui-corner-all' %>
 <% end %>

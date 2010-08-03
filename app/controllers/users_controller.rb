@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @profile = @user.profile
     @profile.about_me = RedCloth.new(@profile.about_me).to_html
+    @questions = @user.questions.paginate :page => params[:page], :order => 'updated_at DESC'
+    @answers = @user.answers.paginate :page => params[:answer_page], :order => 'updated_at DESC'
     respond_to do |format|
       format.html
     end
