@@ -19,7 +19,6 @@ class QuestionsController < ApplicationController
         @answer.save
         @question.save
         correct_reputation @answer
-
       end
       respond_to do |format|
         format.js

@@ -35,6 +35,7 @@
 	<div class="right-block small-font">
 		<% if can? :edit, show_answer %>
 			<%= link_to '编辑', [:edit,@question,show_answer] %>
+			<%= link_to '举报', {:controller => :flags, :action => :flag, :user_id => current_user.id, :who => show_answer.class.name, :id => show_answer.id}, :confirm => '确定要举报此答案吗？', :remote => true %>
 		<% end %>
 		<div class="versions">
 			<%= euler show_answer.version %>

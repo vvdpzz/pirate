@@ -9,7 +9,12 @@ class VotesController < ApplicationController
       set_vote(@qac)
       
       increase_reputation @qac
-      send_notification @qac, "vote_up", current_user
+      if @qac.class.name == 'Question'
+        notification = "#{current_user.id}投了您正票#{@qac.class.name}_#{@qac.commentable.id}"
+      else
+        notification = "#{current_user.id}投了您正票#{@qac.class.name}_#{@qac.commentable.id}"
+      end
+      send_notification @qac, "vote_up", notification
       respond_to do |format|
         format.js
       end
@@ -26,7 +31,12 @@ class VotesController < ApplicationController
       set_vote(@qac)
       
       decrease_reputation @qac
-      send_notification @qac, "vote_down", current_user
+      if @qac.class.name == 'Question'
+        notification = "#{current_user.id}投了您负票#{@qac.class.name}_#{@qac.commentable.id}"
+      else
+        notification = "#{current_user.id}投了您负票#{@qac.class.name}_#{@qac.commentable.id}"
+      end
+      send_notification @qac, "vote_down", notification
       respond_to do |format|
         format.js
       end

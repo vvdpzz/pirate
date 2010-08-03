@@ -6,6 +6,7 @@ Return0::Application.routes.draw do |map|
 
   get "votes/vote_up"
   get "votes/vote_down"
+  get "flags/flag"
 
   resources :previews
   resources :notifies

@@ -22,6 +22,7 @@
 		<% if @question.user.id == current_user.id %>
 			<%= link_to '删除', @question, :confirm => '确定要删除此问题吗？', :method => :delete %>
 		<% end -%>
+		<%= link_to '举报', {:controller => :flags, :action => :flag, :user_id => current_user.id, :who => @question.class.name, :id => @question.id, :user => @question.user.id}, :confirm => '确定要举报此问题吗？', :remote => true %>
 		<div class="versions">
 			<%= euler @question.version %>
 		</div>

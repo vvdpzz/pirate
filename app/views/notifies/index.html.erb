@@ -1,3 +1,9 @@
 <% @notifies.each do |notify|  %>
-	<%= link_to notify.body, notify %><br/>
+	<% if notify.attri == 'vote_up' || notify.attri == 'vote_down' || notify.attri == 'flag'%>
+		<% a = notify.body.split("_",2) %>
+		<%= link_to notify.body, {:controller => :questions, :action => :show, :id => a[1]} %>
+	<% else%>
+		<%= link_to notify.body, notify %>
+	<% end-%>
+	<br>
 <% end -%>
