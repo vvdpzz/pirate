@@ -18,6 +18,8 @@ Return0::Application.routes.draw do |map|
   match 'questions/:question_id/correct/:correct_id' => 'questions#correct', :as => :correct
   match 'unanswered/' => 'questions#unanswered', :as => :unanswered
   
+  match 'questions/:id/history' => 'questions#history', :as =>:history
+  
   resources :questions do
     get :autocomplete_tag_name, :on => :collection
     resources :answers do

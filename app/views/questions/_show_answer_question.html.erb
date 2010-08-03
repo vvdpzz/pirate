@@ -1,0 +1,4 @@
+<%= div_for show_answer_question.question do %>
+	<h3><%= link_to show_answer_question.question.title, show_answer_question.question %></h3>
+	<%= render :partial => 'other/action_time', :locals => {:show_question => show_answer_question.question} %>
+<% end %>

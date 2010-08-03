@@ -1,8 +1,8 @@
 <div class="subheader">
 	<h1>问题</h1>
 	<%= tabs_tag(:builder => MenuTabBuilder, :open_tabs => { :id => "tabs" }) do |tab| %>
-		<%= tab.newest '最新问题', { :controller => "questions", :action => "index", :sort => "newest" } %>
 		<%= tab.active '最近更新', { :controller => "questions", :action => "index", :sort => "active" } %>
+		<%= tab.newest '最新问题', { :controller => "questions", :action => "index", :sort => "newest" } %>
 		<%= tab.vote '最多投票', { :controller => "questions", :action => "index", :sort => "vote" } %>
 	<% end %>
 </div>

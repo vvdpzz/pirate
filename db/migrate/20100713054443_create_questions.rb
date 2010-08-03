@@ -16,6 +16,12 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer :views, :default => 0
       
       t.integer :vote, :default => 0
+      
+      # selected version
+      t.integer :selected_version, :default => 0
+      
+      # commit message
+      t.string :commit_message
 
       t.timestamps
     end

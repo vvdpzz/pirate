@@ -55,3 +55,16 @@
 		</td>
 	</tr>
 </table>
+<h2>问题</h2>
+<hr></hr>
+<%= render :partial => "questions/show_question", :collection => @questions %>
+<%= will_paginate @questions %>
+
+<h2>答案</h2>
+<hr></hr>
+<%= render :partial => "questions/show_answer_question", :collection => @answers %>
+<%= will_paginate @answers %>
+
+<h2>tags</h2>
+<hr></hr>
+<%= render :partial => "other/show_tag", :collection => @user.skill_list %>

@@ -254,7 +254,7 @@ a{
 			float:right;
 		}
 .summary-block {
-	margin-left:94px; }
+	margin-left:93px; }
 	.summary-block h3{
 		font-size:17px; font-weight: bold; margin:0 0 5px;
 	}
@@ -279,7 +279,8 @@ b, strong{
 }
 .stats{
 	margin: 0px 0px 0px 7px;
-	padding: 4px 7px 6px;
+/*	padding: 4px 7px 6px;*/
+	padding:0 7px;
 	width: 58px;
 }
 .vote-block{

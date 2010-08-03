@@ -34,7 +34,7 @@
 	</div>
 	<div class="right-block small-font">
 		<% if can? :edit, show_answer %>
-			<%= link_to '编辑', [:edit,@question,show_answer] %>
+			<%= link_to '编辑', [:edit,show_answer.question,show_answer] %>
 		<% end %>
 		<div class="versions">
 			<%= euler show_answer.version %>

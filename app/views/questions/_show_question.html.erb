@@ -1,5 +1,5 @@
 <%= div_for show_question do %>
-<%= render :partial => 'stats', :locals => {:show_question => show_question}%>
+<%= render :partial => 'other/stats', :locals => {:show_question => show_question}%>
 <div class="summary-block">
 	<h3><%= link_to show_question.title, show_question %></h3>
 	<div class="excerpt">
@@ -8,6 +8,6 @@
 	<div class="tags">
 		<%= render :partial => "other/show_tag", :collection => show_question.tag_list %>
 	</div>
-	<%= render :partial => 'action_time', :locals => {:show_question => show_question} %>
+	<%= render :partial => 'other/action_time', :locals => {:show_question => show_question} %>
 </div>
 <% end %>

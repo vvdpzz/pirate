@@ -23,6 +23,8 @@
 			<%= link_to '删除', @question, :confirm => '确定要删除此问题吗？', :method => :delete %>
 		<% end -%>
 		<div class="versions">
+			<%=  link_to "rollback", :version => @question.version-1  if @question.version-1 >0 %> | <%=  link_to "roll", :version => @question.version+1  if @question.version < @question.versions.count+1%>
+               | <%= link_to "查看历史版本", history_path%>
 			<%= euler @question.version %>
 		</div>
 	</div>

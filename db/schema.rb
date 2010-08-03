@@ -88,11 +88,13 @@ ActiveRecord::Schema.define(:version => 20100729144407) do
     t.integer  "user_id"
     t.string   "title"
     t.text     "body"
-    t.integer  "answer_id",  :default => 0
-    t.integer  "status",     :default => 0
-    t.integer  "featured",   :default => 0
-    t.integer  "views",      :default => 0
-    t.integer  "vote",       :default => 0
+    t.integer  "answer_id",        :default => 0
+    t.integer  "status",           :default => 0
+    t.integer  "featured",         :default => 0
+    t.integer  "views",            :default => 0
+    t.integer  "vote",             :default => 0
+    t.integer  "selected_version", :default => 0
+    t.string   "commit_message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -123,7 +125,6 @@ ActiveRecord::Schema.define(:version => 20100729144407) do
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "nscount",                             :default => 1
     t.integer  "sign_in_count",                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
