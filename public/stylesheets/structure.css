@@ -2,8 +2,29 @@
 	width:980px; margin:0 auto;
 }
 #header{
-	
+	float:left; width:100%;
 }
+	#logo {
+		float:left;
+	}
+	#nav {
+		float:left; margin:37px 20px 0;
+	}
+	#nav li {
+		display:inline; margin-right:7px;
+	}
+		#nav li a {
+			text-decoration: none; color:white;
+		}
+		#nav .unclick {
+			padding:6px 14px; font-size:16px; font-weight:bold; color:white; background-color:#777; 
+		}
+			#nav .unclick:hover {
+				background-color:#a6a6a6; text-decoration: none;
+			}
+			.clicked {
+				padding:6px 12px; font-size:16px; font-weight:bold; color:white; background-color:#a6a6a6;
+			}
 #wrapper {
 	float:left;
 }
@@ -332,9 +353,6 @@ text-align: center;
 }
 #tabs li {
 	display:inline; margin:0 5px;
-}
-#tabs a{
-	text-decoration: none;
 }
 #tabs a:hover{
 	text-decoration: none;
