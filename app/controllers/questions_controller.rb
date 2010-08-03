@@ -55,12 +55,12 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    # @question.skip_version do
-    #   if session["question_viewed_#{@question.id}"] == nil
-    #     session["question_viewed_#{@question.id}"] = 1
-    #     @question.update_attributes(:views => @question.views+1)
-    #   end
-    # end
+    @question.skip_version do
+      if session["question_viewed_#{@question.id}"] == nil
+        session["question_viewed_#{@question.id}"] = 1
+        @question.update_attributes(:views => @question.views+1)
+      end
+    end
     @question.revert_to(params[:version].to_i) if params[:version]
     @question.body = RedCloth.new(@question.body).to_html
 
